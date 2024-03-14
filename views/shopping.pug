@@ -1,0 +1,96 @@
+extends ../templates/template
+
+block main
+    main.main
+        section.season
+            h1 Favorite Clothes
+            div.season_container
+                div.season_card
+                div.season_card
+                div.season_card
+                div.season_card
+        section.products
+            form.products_filters#productsFilters(method="post" action="/shopping" autocomplete="off" onsubmit="return ValidateCheckbox();")
+                div.one
+                    label.labelChecked-1(for="Man" onclick="CheckedInputOption1()") Men
+                        input.inputChecked-1(type="checkbox" id="Man Option" value="1" name="Men")
+                        span.checkmark
+                    label.labelChecked-2(for="Woman" onclick="CheckedInputOption2()") Women
+                        input.inputChecked-2(type="checkbox" id="Woman Option" value="2" name="Woman")
+                        span.checkmark
+                div.two
+                    h3 Clothing
+                    div
+                        input(type="checkbox" id="AllClo" value="true" name="All Clothing" onclick="SendForm()")
+                        label(for="AllClo") All Clothing
+                    div
+                        input(type="checkbox" id="Top&T-Shi" value="true" name="Tops & T-Shirts" onclick="SendForm()")
+                        label(for="Top&T-Shi") Tops & T-Shirts
+                    div
+                        input(type="checkbox" id="Shor" value="true" name="Shorts" onclick="SendForm()")
+                        label(for="Shor") Shorts
+                    div
+                        input(type="checkbox" id="Hoo&Pull" value="true" name="Hoodies & Pullovers" onclick="SendForm()")
+                        label(for="Hoo&Pull") Hoodies & Pullovers
+                    div
+                        input(type="checkbox" id="Joo&Swea" value="true" name="Joggers & Sweatpants" onclick="SendForm()")
+                        label(for="Joo&Swea") Joggers & Sweatpants
+                    div
+                        input(type="checkbox" id="Pan&Legg" value="true" name="Pants & Leggins" onclick="SendForm()")
+                        label(for="Pan&Legg") Pants & Leggins
+                    div
+                        input(type="checkbox" id="SporBras" value="true" name="Sports Bras" onclick="SendForm()")
+                        label(for="SporBras") Sports Bras
+                    div
+                        input(type="checkbox" id="SaleClo" value="true" name="Sale Clothing" onclick="SendForm()")
+                        label(for="SaleClo") Sale Clothing
+                    h3 Shoes
+                    div
+                        input(type="checkbox" id="AllShoe" value="true" name="All Shoes" onclick="SendForm()")
+                        label(for="AllShoe") All Shoes
+                    div
+                        input(type="checkbox" id="TraShoe" value="true" name="Training Shoes" onclick="SendForm()")
+                        label(for="TraShoe") Training Shoes
+                    div
+                        input(type="checkbox" id="RunnShoe" value="true" name="Running Shoes" onclick="SendForm()")
+                        label(for="RunnShoe") Running Shoes
+                    div
+                        input(type="checkbox" id="SaleSho" value="true" name="Sale Shoes" onclick="SendForm()")
+                        label(for="SaleSho") Sale Shoes
+                    h3 Accessories
+                    div
+                        input(type="checkbox" id="AllAcc" value="true" name="All Accessories" onclick="SendForm()")
+                        label(for="AllAcc") All Accessories
+                    div
+                        input(type="checkbox" id="Watch" value="true" name="Watches" onclick="SendForm()")
+                        label(for="Watch") Watches
+                    div
+                        input(type="checkbox" id="Cap" value="true" name="Cap" onclick="SendForm()")
+                        label(for="Cap") Cap
+                    div
+                        input(type="checkbox" id="SaleAcc" value="true" name="Sale Accessories" onclick="SendForm()")
+                        label(for="SaleAcc") Sale Accessories
+            div.products_search
+                div.products_search_container
+                    div.products_search_text
+                        if (product == undefined && typeProduct == undefined)
+                            h3 All Clothing
+                            p Men & Women
+                        else
+                            h3= `${product}`
+                            if (typeProduct == undefined)
+                                p Man & Woman
+                            else
+                                p= `${typeProduct}`
+                    div.products_search_btn
+                        input(type="text" placeholder="Search")
+                        span(class="material-icons-round") search
+                div.products_search_stock
+                    each row in register
+                        div.stock#stock(class=`${row.model}`)
+                            div.the_most_sold_card_stock
+                                img(src=`../assets/img/${row.img}`, alt=`img-${row.img}`)
+                                span.price $#{row.price}
+                            div.the_most_sold_card_text
+                                p.tag_product #{row.model}
+                                p.tag_type #{row.type_product_id}

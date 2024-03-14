@@ -1,0 +1,41 @@
+extends ../templates/template
+
+block main 
+    main.main
+        section.men_women
+            h1 Women
+            div.men_women_container
+                div.men_women_card
+                    div.men_women_card_stock
+                        img(src="../assets/img/img-shoes-woman.jpg", alt="img-shoes-woman")
+                    a(href="/shopping") Shoes
+                div.men_women_card
+                    div.men_women_card_stock
+                        img(src="../assets/img/img-clothing-woman.jpg", alt="img-clothing-woman")
+                    a(href="/shopping") Clothing
+                div.men_women_card
+                    div.men_women_card_stock
+                        img(src="../assets/img/img-acces-woman.jpg", alt="img-acces-woman")
+                    a(href="/shopping") Accessories
+        section.men_women_content 
+                div.men_women_content_div
+                    img(src="../assets/img/img-section-woman-2.jpg", alt="img-section-woman-2")
+                    p Own your runway, redefine your style.
+                div.men_women_content_div
+                    img(src="../assets/img/img-section-woman-1.jpg", alt="img-section-woman-1")
+                    p Chic Choices, Confident Women.
+        section.the_most_sold_container.men_or_women
+            div.the_most_sold
+                h2 The Most Sold
+                    div.swiper.mySwiper_the_most_sold
+                        div.swiper-wrapper
+                            each row in register
+                                div.swiper-slide
+                                    div.the_most_sold_card_stock
+                                        img(src=`../assets/img/${row.img}`, alt=`img-${row.img}`)
+                                        span.price $#{row.price}
+                                    div.the_most_sold_card_text
+                                        p.tag_product #{row.model}
+                                        p.tag_type #{row.type_product_id}
+                        div.swiper-button-next
+                        div.swiper-button-prev

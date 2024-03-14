@@ -1,0 +1,83 @@
+extends ../templates/template
+
+block main
+    main.main
+        section.port
+            div.swiper.mySwiper_port
+                div.swiper-wrapper
+                    div.swiper-slide
+                        div.swiper-slide_port.port_1
+                    div.swiper-slide
+                        div.swiper-slide_port.port_2
+                    div.swiper-slide
+                        div.swiper-slide_port.port_3
+                    div.swiper-slide
+                        div.swiper-slide_port.port_4
+                div.swiper-button-next
+                div.swiper-button-prev
+                div.swiper-pagination
+                div.autoplay-progress
+                    svg(viewBox="0 0 48 48")
+                        circle(cx="24" cy="24" r="20")
+                    span
+        section.men_or_women
+            div.men
+                div.men_text
+                    h2 Men
+                    p Stay strong, powerful and unique.
+                div.men_container_img
+                    div.container_boxes_1_2
+                        div.box_1
+                            img(src="../assets/img/img-index-man-2.jpg", alt="img-index-man-2")
+                        div.container_boxes
+                            div.box_2
+                                img(src="../assets/img/img-index-man-3.jpg", alt="img-index-man-3")
+                            div.box_2
+                                img(src="../assets/img/img-index-man-4.jpg", alt="img-index-man-4")
+                    div.box_3
+                        img(src="../assets/img/img-index-man.jpg", alt="img-index-man")
+                    a(href="/men") See More
+            div.women
+                div.women_text
+                    h2 Women
+                    p Keep shining, simple and beautiful.
+                div.women_container_img
+                    div.container_boxes_1_2
+                        div.box_1
+                            img(src="../assets/img/img-index-woman-2.jpg", alt="img-index-woman-2")
+                        div.container_boxes
+                            div.box_2
+                                img(src="../assets/img/img-index-woman-3.jpg", alt="img-index-woman-3")
+                            div.box_2
+                                img(src="../assets/img/img-index-woman-4.jpg", alt="img-index-woman-4")
+                    div.box_3
+                        img(src="../assets/img/img-index-woman.jpg", alt="img-index-woman")
+                    a(href="/women") See More
+        section.the_most_sold_container
+            div.the_most_sold
+                h2 The Most Sold
+                div.swiper.mySwiper_the_most_sold
+                    div.swiper-wrapper
+                        each row in register
+                            div.swiper-slide
+                                div.the_most_sold_card_stock
+                                    img(src=`../assets/img/${row.img}`, alt=`img-${row.img}`)
+                                    span.price $#{row.price}
+                                div.the_most_sold_card_text
+                                    p.tag_product #{row.model}
+                                    p.tag_type #{row.type_product_id}
+                    div.swiper-button-next
+                    div.swiper-button-prev
+        section.container_3_box
+            h2 New and Featured
+            div.container_3_box_container
+                each rowTwo in registerTwo
+                    div.container_3_box_card
+                        div.container_3_box_card_stock
+                            img(src=`../assets/img/${rowTwo.img}`, alt=`img-${rowTwo.img}`)
+                            span.price $#{rowTwo.price}
+                        div.container_3_box_card_text
+                            p.tag_product #{rowTwo.model}
+                            p.tag_type #{rowTwo.type_product_id}
+            a(href="/shopping") See More Products
+        section.indice

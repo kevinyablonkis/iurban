@@ -1,0 +1,103 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        //- LOGO
+        link(rel="shortcut icon" href="/assets/icon/logo.ico" type="image/x-icon")
+        link(rel="stylesheet" href="../css/normalize.css")
+        link(rel="stylesheet" href="../css/style.css")
+        //- LINK REAL SWIPER JS - https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css
+        link(rel="stylesheet" href="/css/swiper.style.css")
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Round")
+        //- FONTS
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+        title IUrban
+    body
+        block header
+            header.header.header_home#header
+                nav.header_nav
+                    a.logo(href="/"): img(src="../assets/img/logo-a.png" alt="logo-iurban")
+                    ul.header_nav_list
+                        li.header_links: a(href="/new-and-featured") New and Featured
+                        li.header_links: a(href="/men") Men
+                        li.header_links: a(href="/women") Women
+                        if (data_user !== undefined)
+                            div.data_user__container
+                                li: span#btnDataUserOpen.unactive(class="material-icons-round" onclick="btnUser()") person
+                            div#dataUser.data_user
+                                span.btn_user_icon_close#btnUserIconClose(class="material-icons-round") close
+                                div.data_user__container
+                                    li: span#btnDataUserClose(class="material-icons-round" onclick="btnUser()") person
+                                    div.data_user__container_info#dataUserContainerInfo
+                                        span.data_user__full_name #{data_user.First_Name} #{data_user.Last_Name}
+                                        span.data_user__email #{data_user.Email}
+                                div.data_user__options#dataUserOptions
+                                    a(href="/account") Account
+                                    a.logout(href="/logout") Log Out
+                        else
+                            li: a(href="/signup"):  span(class="material-icons-round") account_circle
+                            li: a(href="/login"): span(class="material-icons-round") login
+
+        block main
+
+        block aside
+            aside.aside
+
+        block indice
+            section.indice#indice
+                div.indice_div
+                    nav.indice_container_nav
+                        h3 Shoes
+                        ul.indice_container_nav_list
+                            li: a(href="") All Shoes
+                            li: a(href="") Training Shoes
+                            li: a(href="") Running Shoes
+                            li: a(href="") Sale Shoes
+                    nav.indice_container_nav
+                        h3 Clothing
+                        ul.indice_container_nav_list
+                            li: a(href="") All Clothing
+                            li: a(href="") Tops & T-Shirts
+                            li: a(href="") Shorts
+                            li: a(href="") Hoodies & Pullovers
+                            li: a(href="") Joggers & Sweatpants
+                            li: a(href="") Pants & Leggins
+                            li: a(href="") Sports Bras
+                            li: a(href="") Sale Clothing
+                    nav.indice_container_nav
+                        h3 Accessories
+                        ul.indice_container_nav_list
+                            li: a(href="") Watches
+                            li: a(href="") Cap
+                div.indice_div
+                    nav.indice_container_nav
+                        h3 Company Info
+                        ul.indice_container_nav_list
+                            li: a(href="") About Us
+                            li: a(href="") Contact Us
+                            li: a(href="") Our Values
+                    nav.indice_container_nav
+                        h3 Follo Us
+                        ul.indice_container_nav_lis_red
+                            li: a(href=""): img(src="../assets/img/facebook.png" alt="facebook" width="50px" height="50px")
+                            li: a(href=""): img(src="../assets/img/instagram.png" alt="instagram" width="50px" height="50px")
+                            li: a(href=""): img(src="../assets/img/linkedin.png" alt="linkedin" width="50px" height="50px")
+        block buttonScroll
+            a.scroll_up#scrollButton(href="#header"): span.material-icons-round keyboard_double_arrow_up
+        block footer
+            footer.footer
+                nav.footer_nav
+                    ul.footer_nav_list
+                        li: a(href="") Term & Conditions
+                        li: a(href="") Privacy Policy
+                        li: a(href="") Support
+                    p ©2023 IUrban Venezuela, Inc
+
+        block script
+            script(defer src="/js/script.js")
+            script(defer type="module" src="/js/swiper.script.js")
+            script(defer type="module" src="/js/socket.io.js")
+            //- script(defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js")

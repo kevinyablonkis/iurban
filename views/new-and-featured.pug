@@ -1,0 +1,19 @@
+extends ../templates/template
+
+block main
+    main.main
+        section.new-and-featured
+            h1 New and Featured
+            div.new-and-featured_container_one
+                img(src="../assets/img/img-section-new.jpg", alt="img-section-new")
+                p Freshness that dresses with every summer breeze.
+            div.new-and-featured_container
+                each row in register
+                    div.new_and_featured_card
+                        div.the_most_sold_card_stock
+                            img(src=`../assets/img/${row.img}`, alt=`img-${row.img}`)
+                            span.price $#{row.price}
+                        div.the_most_sold_card_text
+                            p.tag_product #{row.model}
+                            p.tag_type #{row.type_product_id}
+            a(href="/shopping") See More Products

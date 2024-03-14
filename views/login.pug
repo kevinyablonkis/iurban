@@ -1,0 +1,16 @@
+extends ../templates/template
+
+block main
+    section.login
+        div#loginContainer.login_container
+            h1 Open Sesssion
+            form#loginForm.login_form(method="post" action="/login/loging" autocomplete="off")
+                div.login_form_container
+                    label(for="usernameLogin") Username
+                    input(id="usernameLogin" name="username" type="text" autofocus required)
+                    small(id="errorUsernameLogin") Unregistered user.
+                    label(for="passwordLogin") Password
+                    input(id="passwordLogin" name="password" type="password" autofocus required)
+                    small(id="errorPasswordLogin") Incorrect password.
+                button(id="btnLogin" type="submit") Log In
+        a(href="/signup") Create account.
