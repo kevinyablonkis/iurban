@@ -25,11 +25,9 @@ controller.index = async (req, res) => {
           register,
           registerTwo,
         });
-        pool.end();
       })
       .catch((error) => {
         console.error("Error en allQuerys", error);
-        pool.end();
       });
   }
 
@@ -68,6 +66,7 @@ controller.index = async (req, res) => {
     "SELECT DISTINCT ON (Model) Model,(SELECT Type_Product FROM Type_Products WHERE Type_Product_ID = tablas_combinadas.Type_Product_ID) AS Type_Product_ID,(SELECT Type_Gender FROM Genders WHERE Type_Gender_ID = tablas_combinadas.Type_Gender_ID) AS Type_Gender_ID,Price,Stock,Img FROM (SELECT Model,Type_Product_ID,Type_Gender_ID,Price,Stock,Img FROM Clothing UNION SELECT Model,Type_Product_ID,Type_Gender_ID,Price,Stock,Img FROM Shoes UNION SELECT Model,Type_Product_ID,Type_Gender_ID,Price,Stock,Img FROM Accessories) AS tablas_combinadas WHERE Price >= 10 ORDER BY Model,random() LIMIT 3;";
 
   await allQuerys(sql, params, sqlTwo, paramsTwo);
+  pool.end();
 };
 
 module.exports = controller;

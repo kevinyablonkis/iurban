@@ -20,7 +20,6 @@ controller.index = (req, res) => {
   });
 
   const doingQuery = (sql, params) => {
-    // pool.connect();
     pool.query(sql, params, (err, result) => {
       if (err) {
         console.error("Error al ejecutar la consulta", err);
@@ -34,7 +33,6 @@ controller.index = (req, res) => {
           typeProduct: contentFormTypeKeys[1],
         });
       }
-      pool.end();
     });
   };
 
@@ -272,6 +270,7 @@ controller.index = (req, res) => {
       doingQuery(sql, params);
     }
   }
+  pool.end();
 };
 
 module.exports = controller;

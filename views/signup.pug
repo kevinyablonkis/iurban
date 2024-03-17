@@ -7,19 +7,19 @@ block main
             form#signup_form.signup_form(method="post" autocomplete="off" action="/signup/registering")
                 div.signup_form_container
                     label(for="firstName") First Name
-                    input(id="firstName" name="First_Name" type="text" autofocus required)
+                    input(id="firstName" name="first_name" type="text" autofocus required)
                     label(for="lastName") Last Name
-                    input(id="lastName" name="Last_Name" type="text" required)
+                    input(id="lastName" name="last_name" type="text" required)
                     label(for="email") E-Mail
-                    input(id="email" name="Email" type="email" required)
+                    input(id="email" name="email" type="email" required)
                     small(id="errorEmail") Email already registered.
                     label(for="username") Username
-                    input(id="username" name="Username" type="text" required)
+                    input(id="username" name="username" type="text" required)
                     small(id="errorUsername") User already in use.
                     label(for="password") Password
-                    input(id="password" name="Password" type="password" required)
+                    input(id="password" name="password" type="password" required)
                     label(for="repeatPassword") Repeat Password
-                    input(id="repeatPassword" name="R_Password" type="password" required)
+                    input(id="repeatPassword" name="r_password" type="password" required)
                     small(id="errorKeys") The keys do not match.
                 button(id="btnEmail" type="submit") Sign Up
         a(href="/login") Open session.

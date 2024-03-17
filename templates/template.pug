@@ -32,8 +32,8 @@ html(lang="en")
                                 div.data_user__container
                                     li: span#btnDataUserClose(class="material-icons-round" onclick="btnUser()") person
                                     div.data_user__container_info#dataUserContainerInfo
-                                        span.data_user__full_name #{data_user.First_Name} #{data_user.Last_Name}
-                                        span.data_user__email #{data_user.Email}
+                                        span.data_user__full_name #{data_user.first_name} #{data_user.last_name}
+                                        span.data_user__email #{data_user.email}
                                 div.data_user__options#dataUserOptions
                                     a(href="/account") Account
                                     a.logout(href="/logout") Log Out
@@ -99,5 +99,5 @@ html(lang="en")
         block script
             script(defer src="/js/script.js")
             script(defer type="module" src="/js/swiper.script.js")
-            script(defer type="module" src="/js/socket.io.js")
+            script(defer type="module" src="/js/socket.client.js")
             //- script(defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js")

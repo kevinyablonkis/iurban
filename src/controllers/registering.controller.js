@@ -43,7 +43,6 @@ controller.index = (req, res) => {
       let register = result.rows;
       res.redirect("/");
     }
-    pool.end();
   });
 };
 
