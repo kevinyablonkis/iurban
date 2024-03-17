@@ -57,7 +57,7 @@ h2 {    font-size: 50px;    }
     justify-content: center;
     padding: 10px;
     background-color: #2c5182;
-    border-radius: 50px;
+    border-radius: 15px;
     transition: ease .3s;
 }
 
@@ -182,6 +182,7 @@ h2 {    font-size: 50px;    }
     border-radius: 16px;
     width: 180px;
     border: 1.8px black solid;
+    user-select: none;
 }
 
 .data_user__container {
@@ -190,6 +191,7 @@ h2 {    font-size: 50px;    }
     align-items: center;
     justify-content: center;
     gap: 10px;
+    user-select: none;
 }
 
 .data_user__container_info {

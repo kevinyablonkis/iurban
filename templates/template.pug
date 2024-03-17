@@ -26,11 +26,11 @@ html(lang="en")
                         li.header_links: a(href="/women") Women
                         if (data_user !== undefined)
                             div.data_user__container
-                                li: span#btnDataUserOpen.unactive(class="material-icons-round" onclick="btnUser()") person
+                                li: span#btnDataUserOpen.unactive(class="material-icons-round") person
                             div#dataUser.data_user
                                 span.btn_user_icon_close#btnUserIconClose(class="material-icons-round") close
                                 div.data_user__container
-                                    li: span#btnDataUserClose(class="material-icons-round" onclick="btnUser()") person
+                                    li: span#btnDataUserClose(class="material-icons-round") person
                                     div.data_user__container_info#dataUserContainerInfo
                                         span.data_user__full_name #{data_user.first_name} #{data_user.last_name}
                                         span.data_user__email #{data_user.email}

@@ -1,3 +1,16 @@
+// CHANGE MENU WITH URL
+
+function changeMenuWithURL() {
+  let url = window.location.href;
+  // http://localhost:3000/ = length 22
+
+  const header = document.getElementById("header");
+
+  if (url.length > 22) {
+    header.style.backgroundColor = "#3d679f";
+  }
+}
+
 // ENVIAR FORMULARIO
 
 const productsFilters = document.getElementById("productsFilters");
@@ -40,22 +53,6 @@ function CheckedInputOption2() {
   inputChecked1.checked = false;
 }
 
-// CHANGE MENU WITH URL
-
-function changeMenuWithURL() {
-  let url = window.location.href;
-  // http://localhost:3000/ = length 22
-
-  const header = document.getElementById("header");
-
-  if (url.length > 22) {
-    header.style.backgroundColor = "#3d679f";
-  }
-  // if (url.length <= 22) {
-  //   header.classList.remove("header_home");
-  // }
-}
-
 window.addEventListener("load", changeMenuWithURL);
 
 // DO SCROLL UP && SEE INDICE IN PAGE
@@ -66,26 +63,26 @@ document.addEventListener("DOMContentLoaded", function () {
   let url = window.location.href;
 
   if (url.includes("login") || url.includes("signup")) {
-    indice.style.display = "none"; // Ocultar el elemento
-    scrollButton.style.display = "none"; // Ocultar el elemento
+    indice.style.display = "none";
+    scrollButton.style.display = "none";
   } else {
-    indice.style.display = "flex"; // Mostrar el elemento
-    scrollButton.style.display = "flex"; // Mostrar el elemento
+    indice.style.display = "flex";
+    scrollButton.style.display = "flex";
 
     window.onscroll = function () {
       // Verifica si la página puede hacer scroll hacia arriba
       if (
-        document.body.scrollTop > 20 ||
-        document.documentElement.scrollTop > 20
+        document.body.scrollTop > 250 ||
+        document.documentElement.scrollTop > 250
       ) {
-        scrollButton.style.display = "block";
+        scrollButton.style.display = "flex";
       } else {
         scrollButton.style.display = "none";
       }
     };
   }
 
-  // Agrega un evento al botón para hacer scroll hacia arriba
+  // Evento para hacer scroll hacia arriba
   scrollButton.addEventListener("click", function () {
     document.body.scrollTop = 0; // Para navegadores Safari
     document.documentElement.scrollTop = 0; // Para otros navegadores
@@ -98,21 +95,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const dataUser = document.getElementById("dataUser");
 const btnDataUserOpen = document.getElementById("btnDataUserOpen");
-const btnDataUserClose = document.getElementById("btnDataUserClose");
 const btnUserIconClose = document.getElementById("btnUserIconClose");
 const dataUserContainerInfo = document.getElementById("dataUserContainerInfo");
 const dataUserOptions = document.getElementById("dataUserOptions");
 
-const btnUser = () => {
-  btnDataUserOpen.addEventListener("click", () => {
-    dataUser.style.display = "flex";
-  });
+btnDataUserOpen.addEventListener("click", () => {
+  dataUser.style.display = "flex";
+});
 
-  btnDataUserClose.addEventListener("click", () => {
-    dataUser.style.display = "none";
-  });
-
-  btnUserIconClose.addEventListener("click", () => {
-    dataUser.style.display = "none";
-  });
-};
+btnUserIconClose.addEventListener("click", () => {
+  dataUser.style.display = "none";
+});
