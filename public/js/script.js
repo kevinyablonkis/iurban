@@ -91,6 +91,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // VER PASSWORD
 
+const passwordVisibility = document.getElementById("passwordVisibility");
+const repeatPasswordVisibility = document.getElementById(
+  "repeatPasswordVisibility"
+);
+const password = document.getElementById("password");
+const repeatPassword = document.getElementById("repeatPassword");
+
+if (password) {
+  passwordVisibility.addEventListener("click", () => {
+    if (password.classList.contains("visibility")) {
+      passwordVisibility.textContent = "visibility";
+      password.setAttribute("type", "password");
+      password.classList.toggle("visibility");
+    } else {
+      passwordVisibility.textContent = "visibility_off";
+      password.setAttribute("type", "text");
+      password.classList.toggle("visibility");
+    }
+  });
+
+  repeatPasswordVisibility.addEventListener("click", () => {
+    if (repeatPassword.classList.contains("visibility")) {
+      repeatPasswordVisibility.textContent = "visibility";
+      repeatPassword.setAttribute("type", "password");
+      repeatPassword.classList.toggle("visibility");
+    } else {
+      repeatPasswordVisibility.textContent = "visibility_off";
+      repeatPassword.setAttribute("type", "text");
+      repeatPassword.classList.toggle("visibility");
+    }
+  });
+}
+
 // BUTTON DATA_USER MENU
 
 const dataUser = document.getElementById("dataUser");

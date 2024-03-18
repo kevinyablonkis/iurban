@@ -167,6 +167,27 @@ h2 {    font-size: 50px;    }
     color: #ffffff;
 }
 
+.container_password_visibility {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.password_visibility {
+    position: absolute;
+    flex: none;
+    right: 1.5px;
+    padding: 5px 8px;
+    background-color: rgba(86, 86, 86, 0.723);
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.password_visibility:hover {
+    background-color: rgba(108, 108, 108, 0.723);
+}
+
 /* DATA_USER */
 
 .data_user {

@@ -17,9 +17,13 @@ block main
                     input(id="username" name="username" type="text" required)
                     small(id="errorUsername") User already in use.
                     label(for="password") Password
-                    input(id="password" name="password" type="password" required)
+                    div.container_password_visibility
+                        input(id="password" class="visibility" name="password" type="password" required)
+                        span(id="passwordVisibility" class="password_visibility visibility" class="material-icons-round") visibility
                     label(for="repeatPassword") Repeat Password
-                    input(id="repeatPassword" name="r_password" type="password" required)
+                    div.container_password_visibility
+                        input(id="repeatPassword" class="visibility" name="r_password" type="password" required)
+                        span(id="repeatPasswordVisibility" class="password_visibility" class="material-icons-round") visibility
                     small(id="errorKeys") The keys do not match.
                 button(id="btnEmail" type="submit") Sign Up
         a(href="/login") Open session.
