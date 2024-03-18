@@ -99,10 +99,12 @@ const btnUserIconClose = document.getElementById("btnUserIconClose");
 const dataUserContainerInfo = document.getElementById("dataUserContainerInfo");
 const dataUserOptions = document.getElementById("dataUserOptions");
 
-btnDataUserOpen.addEventListener("click", () => {
-  dataUser.style.display = "flex";
-});
+if (btnDataUserOpen) {
+  btnDataUserOpen.addEventListener("click", () => {
+    dataUser.style.display = "flex";
+  });
 
-btnUserIconClose.addEventListener("click", () => {
-  dataUser.style.display = "none";
-});
+  btnUserIconClose.addEventListener("click", () => {
+    dataUser.style.display = "none";
+  });
+}

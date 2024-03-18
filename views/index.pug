@@ -28,14 +28,14 @@ block main
                 div.men_container_img
                     div.container_boxes_1_2
                         div.box_1
-                            img(src="../assets/img/img-index-man-2.jpg", alt="img-index-man-2")
+                            img(loading="lazy" src="../assets/img/img-index-man-2.jpg", alt="img-index-man-2")
                         div.container_boxes
                             div.box_2
-                                img(src="../assets/img/img-index-man-3.jpg", alt="img-index-man-3")
+                                img(loading="lazy" src="../assets/img/img-index-man-3.jpg", alt="img-index-man-3")
                             div.box_2
-                                img(src="../assets/img/img-index-man-4.jpg", alt="img-index-man-4")
+                                img(loading="lazy" src="../assets/img/img-index-man-4.jpg", alt="img-index-man-4")
                     div.box_3
-                        img(src="../assets/img/img-index-man.jpg", alt="img-index-man")
+                        img(loading="lazy" src="../assets/img/img-index-man.jpg", alt="img-index-man")
                     a(href="/men") See More
             div.women
                 div.women_text
@@ -44,14 +44,14 @@ block main
                 div.women_container_img
                     div.container_boxes_1_2
                         div.box_1
-                            img(src="../assets/img/img-index-woman-2.jpg", alt="img-index-woman-2")
+                            img(loading="lazy" src="../assets/img/img-index-woman-2.jpg", alt="img-index-woman-2")
                         div.container_boxes
                             div.box_2
-                                img(src="../assets/img/img-index-woman-3.jpg", alt="img-index-woman-3")
+                                img(loading="lazy" src="../assets/img/img-index-woman-3.jpg", alt="img-index-woman-3")
                             div.box_2
-                                img(src="../assets/img/img-index-woman-4.jpg", alt="img-index-woman-4")
+                                img(loading="lazy" src="../assets/img/img-index-woman-4.jpg", alt="img-index-woman-4")
                     div.box_3
-                        img(src="../assets/img/img-index-woman.jpg", alt="img-index-woman")
+                        img(loading="lazy" src="../assets/img/img-index-woman.jpg", alt="img-index-woman")
                     a(href="/women") See More
         section.the_most_sold_container
             div.the_most_sold
@@ -61,7 +61,7 @@ block main
                         each row in register
                             div.swiper-slide
                                 div.the_most_sold_card_stock
-                                    img(src=`../assets/img/${row.img}`, alt=`img-${row.img}`)
+                                    img(loading="lazy" src=`../assets/img/${row.img}`, alt=`img-${row.img}`)
                                     span.price $#{row.price}
                                 div.the_most_sold_card_text
                                     p.tag_product #{row.model}
@@ -74,7 +74,7 @@ block main
                 each rowTwo in registerTwo
                     div.container_3_box_card
                         div.container_3_box_card_stock
-                            img(src=`../assets/img/${rowTwo.img}`, alt=`img-${rowTwo.img}`)
+                            img(loading="lazy" src=`../assets/img/${rowTwo.img}`, alt=`img-${rowTwo.img}`)
                             span.price $#{rowTwo.price}
                         div.container_3_box_card_text
                             p.tag_product #{rowTwo.model}

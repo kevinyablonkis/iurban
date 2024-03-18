@@ -89,7 +89,7 @@ block main
                     each row in register
                         div.stock#stock(class=`${row.model}`)
                             div.the_most_sold_card_stock
-                                img(src=`../assets/img/${row.img}`, alt=`img-${row.img}`)
+                                img(loading="lazy" src=`../assets/img/${row.img}`, alt=`img-${row.img}`)
                                 span.price $#{row.price}
                             div.the_most_sold_card_text
                                 p.tag_product #{row.model}

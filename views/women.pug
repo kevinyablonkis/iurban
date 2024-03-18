@@ -1,6 +1,6 @@
 extends ../templates/template
 
-block main 
+block main
     main.main
         section.men_women
             h1 Women
@@ -17,12 +17,12 @@ block main
                     div.men_women_card_stock
                         img(src="../assets/img/img-acces-woman.jpg", alt="img-acces-woman")
                     a(href="/shopping") Accessories
-        section.men_women_content 
+        section.men_women_content
                 div.men_women_content_div
-                    img(src="../assets/img/img-section-woman-2.jpg", alt="img-section-woman-2")
+                    img(loading="lazy" src="../assets/img/img-section-woman-2.jpg", alt="img-section-woman-2")
                     p Own your runway, redefine your style.
                 div.men_women_content_div
-                    img(src="../assets/img/img-section-woman-1.jpg", alt="img-section-woman-1")
+                    img(loading="lazy" src="../assets/img/img-section-woman-1.jpg", alt="img-section-woman-1")
                     p Chic Choices, Confident Women.
         section.the_most_sold_container.men_or_women
             div.the_most_sold
@@ -32,7 +32,7 @@ block main
                             each row in register
                                 div.swiper-slide
                                     div.the_most_sold_card_stock
-                                        img(src=`../assets/img/${row.img}`, alt=`img-${row.img}`)
+                                        img(loading="lazy" src=`../assets/img/${row.img}`, alt=`img-${row.img}`)
                                         span.price $#{row.price}
                                     div.the_most_sold_card_text
                                         p.tag_product #{row.model}
