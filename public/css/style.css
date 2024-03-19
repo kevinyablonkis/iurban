@@ -178,7 +178,7 @@ h2 {    font-size: 50px;    }
     position: absolute;
     flex: none;
     right: 1.5px;
-    padding: 5px 8px;
+    padding: 4.5px 8px;
     background-color: rgba(86, 86, 86, 0.723);
     border-radius: 0 3px 3px 0;
     user-select: none;
