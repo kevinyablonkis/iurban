@@ -141,3 +141,19 @@ if (btnDataUserOpen) {
     dataUser.style.display = "none";
   });
 }
+
+// BUTTON OF CAR SHOPPING
+
+const carShoppingIcon = document.getElementById("carShoppingIcon");
+const carShoppingContainer = document.getElementById("carShoppingContainer");
+const btnUserIconCloseCar = document.getElementById("btnUserIconCloseCar");
+
+if (carShoppingIcon) {
+  carShoppingIcon.addEventListener("click", () => {
+    carShoppingContainer.style.transform = "translateX(0%)";
+  });
+
+  btnUserIconCloseCar.addEventListener("click", () => {
+    carShoppingContainer.style.transform = "translateX(100%)";
+  });
+}

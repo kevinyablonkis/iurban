@@ -25,6 +25,30 @@ html(lang="en")
                         li.header_links: a(href="/men") Men
                         li.header_links: a(href="/women") Women
                         if (data_user !== undefined)
+                            div.car_shopping
+                                span#carShoppingIcon(class="material-icons-round") shopping_cart
+                            div.car_shopping__container#carShoppingContainer
+                                div.car_shopping__container__header
+                                    span Shopping Cart
+                                    span.btn_user_icon_close_car#btnUserIconCloseCar(class="material-icons-round") close
+                                div.car_shopping__container__products
+                                    div.car_shopping__container__products__product
+                                        div.products__product__img
+                                            span Img
+                                        div.products__product__info
+                                            p Camisa Manga Larga
+                                        div.products__product__color
+                                            div
+                                        div.products__product__stock
+                                            p 50
+                                        div.products__product__price
+                                            p $150
+                                div.car_shopping__container__footer
+                                    div.car_shopping__container__footer__total
+                                        span.total Total
+                                        span.total_price $1000,00
+                                    div.car_shopping__container__footer__btn_buy
+                                        button Buy
                             div.data_user__container
                                 li: span#btnDataUserOpen.unactive(class="material-icons-round") person
                             div#dataUser.data_user
