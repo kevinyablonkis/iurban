@@ -9,6 +9,26 @@ block main
                 div.season_card
                 div.season_card
                 div.season_card
+        section.order
+            div.order__img_container
+                div.order__img_container__img
+            div.order__info
+                div.order__info__title
+                    p Camisa Manga Larga
+                div.order__info__type
+                    p T-Shirt
+                div.order__info__price
+                    p $80
+                div.order__info__colors
+                    p Colors
+                    div.order__info__colors__color
+                div.order__info__sizes
+                    p Sizes
+                    div.order__info__sizes__size
+                div.order__info__quantitys
+                    p Quantity
+                    div.order__info__quantitys__quantity
+                button Add to cart
         section.products
             form.products_filters#productsFilters(method="post" action="/shopping" autocomplete="off" onsubmit="return ValidateCheckbox();")
                 div.one
