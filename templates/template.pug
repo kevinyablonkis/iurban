@@ -3,6 +3,7 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(name="description" content="IUrban: Tu tienda de ropa urbana con las últimas tendencias. Encuentra la ropa urbana más actual para hombre y mujer en IUrban. Desde streetwear hasta looks casuales, tenemos todo lo que necesitas para expresar tu estilo único. Compra online con envío gratuito a toda Venezuela. Descubre las mejores marcas: Nike, Adidas, Puma, Supreme, Stüssy, Off-White y muchas más... Aprovecha nuestras ofertas y promociones exclusivas. Síguenos en redes sociales para estar al día de las últimas novedades. IUrban: Vístete con tu propia personalidad.")
         //- LOGO
         link(rel="shortcut icon" href="/assets/icon/logo.ico" type="image/x-icon")
         link(rel="stylesheet" href="../css/normalize.css")
@@ -21,9 +22,9 @@ html(lang="en")
                 nav.header_nav
                     a.logo(href="/"): img(src="../assets/img/logo-a.webp" alt="logo-iurban")
                     ul.header_nav_list
-                        li.header_links: a(href="/new-and-featured") New and Featured
-                        li.header_links: a(href="/men") Men
-                        li.header_links: a(href="/women") Women
+                        li.header_links: a(href="/new-and-featured" title="New and featured clothing") New and Featured
+                        li.header_links: a(href="/men" title="Men's clothing") Men
+                        li.header_links: a(href="/women" title="Women's clothing") Women
                         if (data_user !== undefined)
                             div.car_shopping
                                 span#carShoppingIcon(class="material-icons-round") shopping_cart
@@ -62,8 +63,8 @@ html(lang="en")
                                     a(href="/account") Account
                                     a.logout(href="/logout") Log Out
                         else
-                            li: a(href="/signup"):  span(class="material-icons-round") account_circle
-                            li: a(href="/login"): span(class="material-icons-round") login
+                            li: a(href="/signup" title="Create Account"):  span(class="material-icons-round") account_circle
+                            li: a(href="/login" title="Log In"): span(class="material-icons-round") login
 
         block main
 

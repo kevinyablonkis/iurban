@@ -602,6 +602,7 @@ h2 {    font-size: 50px;    }
 
 .men_container_img a, .women_container_img a {
     margin-top: 15px;
+    width: 200px;
 }
 
 .container_boxes {
