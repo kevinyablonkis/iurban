@@ -55,6 +55,7 @@ app.use(require("./src/routes/registering.route"));
 app.use(require("./src/routes/loging.route"));
 app.use(require("./src/routes/logout.route"));
 app.use(require("./src/routes/account.route"));
+app.use(require("./src/routes/addcart.route"));
 
 server.listen(3000, () => {
   console.log("Server listening...");

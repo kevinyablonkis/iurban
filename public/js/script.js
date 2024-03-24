@@ -62,7 +62,11 @@ document.addEventListener("DOMContentLoaded", function () {
   let indice = document.getElementById("indice");
   let url = window.location.href;
 
-  if (url.includes("login") || url.includes("signup")) {
+  if (
+    url.includes("login") ||
+    url.includes("signup") ||
+    url.includes("account")
+  ) {
     indice.style.display = "none";
     scrollButton.style.display = "none";
   } else {
@@ -157,3 +161,29 @@ if (carShoppingIcon) {
     carShoppingContainer.style.transform = "translateX(100%)";
   });
 }
+
+// SEE ORDER
+
+const stocks = document.querySelectorAll(".stock");
+const order = document.getElementById("order");
+
+if (stocks) {
+  for (const stock of stocks) {
+    stock.addEventListener("click", () => {
+      order.style.display = "flex";
+    });
+  }
+}
+
+// CLOSE ORDER
+
+const btnUserIconCloseOrder = document.getElementById("btnUserIconCloseOrder");
+
+if (btnUserIconCloseOrder) {
+  btnUserIconCloseOrder.addEventListener('click', () => {
+    order.style.display = "none";
+  })
+}
+
+// FUNCTION DATA ENCAPSULATION FOR ORDER
+

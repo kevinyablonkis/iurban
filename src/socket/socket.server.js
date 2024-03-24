@@ -123,6 +123,13 @@ const handleConnection = (socket) => {
       logearVerificacionPassword(usernameLogin, passwordLogin);
     }
   );
+
+  // FUNCTION DATA ENCAPSULATION FOR ORDER
+
+  const dataEncapsulationForOrder = (nameModel) => {
+  };
+
+  socket.on("dataEncapsulationForOrder", (nameModel) => {});
 };
 
 module.exports = {
