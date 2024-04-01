@@ -126,10 +126,47 @@ const handleConnection = (socket) => {
 
   // FUNCTION DATA ENCAPSULATION FOR ORDER
 
-  const dataEncapsulationForOrder = (nameModel) => {
+  const dataEncapsulationForOrder = (typeModel, nameModel) => {
+    const Accessories =
+      "SELECT	Model,(SELECT Type_Product FROM Type_Products WHERE Accessories.Type_Product_ID = Type_Product_ID) as Type_Product_ID, (SELECT Type_Color FROM Type_Color WHERE Accessories.Type_Color_ID = Type_Color_ID) as Type_Color, Price, Img FROM Accessories WHERE Model = $1";
+
+    const Clothing =
+      "SELECT	Model,(SELECT Type_Product FROM Type_Products WHERE Clothing.Type_Product_ID = Type_Product_ID) as Type_Product_ID, (SELECT Type_Color FROM Type_Color WHERE Clothing.Type_Color_ID = Type_Color_ID) as Type_Color, (SELECT Type_Size FROM Size_Clothing WHERE Clothing.Size_Clothing_ID = Size_Clothing_ID) as Type_Size, Price, Img FROM Clothing WHERE Model = $1";
+
+    const Shoes =
+      "SELECT	Model,(SELECT Type_Product FROM Type_Products WHERE Shoes.Type_Product_ID = Type_Product_ID) as Type_Product_ID, (SELECT Type_Color FROM Type_Color WHERE Shoes.Type_Color_ID = Type_Color_ID) as Type_Color, (SELECT Type_Size FROM Size_Shoes WHERE Shoes.Size_Shoes_ID = Size_Shoes_ID) as Type_Size, Price, Img FROM Shoes WHERE Model = $1";
+
+    let SQL = "";
+
+    if (typeModel === "Accessories") {
+      SQL = Accessories;
+    } else if (typeModel === "Clothing") {
+      SQL = Clothing;
+    } else if (typeModel === "Shoes") {
+      SQL = Shoes;
+    }
+
+    pool.query(SQL, [`${nameModel}`], (err, result) => {
+      if (err) {
+        console.error("Error: ", err);
+      } else {
+        const obj = {};
+        for (const row of result.rows) {
+          for (const [key, value] of Object.entries(row)) {
+            if (!obj[key]) {
+              obj[key] = [];
+            }
+            obj[key].push(value);
+          }
+        }
+        console.log(obj);
+      }
+    });
   };
 
-  socket.on("dataEncapsulationForOrder", (nameModel) => {});
+  socket.on("dataEncapsulationForOrder", async (typeModel, nameModel) => {
+    await dataEncapsulationForOrder(typeModel, nameModel);
+  });
 };
 
 module.exports = {

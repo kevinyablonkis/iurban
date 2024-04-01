@@ -158,7 +158,7 @@ if (loginForm) {
     logearVerificacionUsernameAndPassword();
 
     const Username = await logearSmallUsername();
-    const Password = await logearSmallPassword()
+    const Password = await logearSmallPassword();
 
     if (Password.passwordCorrecta && Username) {
       loginContainer.style.height = "400px";
@@ -173,4 +173,60 @@ if (loginForm) {
   });
 }
 
-const f = document.getElementById('')
+const f = document.getElementById("");
+
+// SEE ORDER
+
+const stocks = document.querySelectorAll(".stock");
+const order = document.getElementById("order");
+
+const Clothing = [
+  "Hoodie-W",
+  "Hoodie",
+  "Leggins",
+  "Pullover",
+  "Short-A",
+  "Short-B",
+  "Sweatpants",
+  "Top-A",
+  "Top-Sport",
+  "T-Shirt",
+  "T-Shirt-Over",
+  "T-Shirt-Woman",
+  "Jeans",
+  "Short-Jeans",
+]
+
+const Accessories = [
+  "Watch-Digital-2",
+  "Watch-Digital-1",
+  "Watch-Classic",
+  "Watch-Elegant",
+  "Cap",
+]
+
+const Shoes = [
+  "Simple-Shoes",
+]
+
+if (stocks) {
+  for (const stock of stocks) {
+    stock.addEventListener("click", () => {
+      const ListClassStock = stock.classList;
+      const nameModel = stock.classList[1];
+
+      if (Clothing.includes(nameModel)) {
+        stock.className += " Clothing";
+      } else if (Accessories.includes(nameModel)) {
+        stock.className += " Accessories";
+      } else if (Shoes.includes(nameModel)) {
+        stock.className += " Shoes";
+      }
+
+      const typeModel = stock.classList[2];
+      // order.style.display = "flex";
+
+      socket.emit("dataEncapsulationForOrder", typeModel, nameModel);
+    });
+  }
+}

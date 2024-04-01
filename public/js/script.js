@@ -162,19 +162,6 @@ if (carShoppingIcon) {
   });
 }
 
-// SEE ORDER
-
-const stocks = document.querySelectorAll(".stock");
-const order = document.getElementById("order");
-
-if (stocks) {
-  for (const stock of stocks) {
-    stock.addEventListener("click", () => {
-      order.style.display = "flex";
-    });
-  }
-}
-
 // CLOSE ORDER
 
 const btnUserIconCloseOrder = document.getElementById("btnUserIconCloseOrder");
@@ -186,4 +173,3 @@ if (btnUserIconCloseOrder) {
 }
 
 // FUNCTION DATA ENCAPSULATION FOR ORDER
-
