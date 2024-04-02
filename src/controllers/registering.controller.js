@@ -7,7 +7,7 @@ const controller = {};
 controller.index = (req, res) => {
   let contentForm = req.body || {};
 
-  req.session.value = req.body;
+  req.session.data_user = req.body;
   // req.flash("data_user", req.body); // USING FLASH
 
   let contentFormTypeValues = Object.values(contentForm);

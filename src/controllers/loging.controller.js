@@ -24,7 +24,7 @@ controller.index = async (req, res) => {
     );
 
     const data = rows[0];
-    req.session.value = data;
+    req.session.data_user = data;
     res.redirect("/");
   } catch (err) {
     console.error("Error: ", err);

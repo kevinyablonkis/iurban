@@ -3,7 +3,8 @@ const { Pool } = require("pg");
 const controller = {};
 
 controller.index = async (req, res) => {
-  const data_user = req.session.value;
+  const data_user = req.session.data_user;
+  const data_cart = req.session.data_cart;
   // const data_user = req.flash("data_user")[0]; // USING FLASH
 
   const pool = new Pool({
@@ -22,6 +23,7 @@ controller.index = async (req, res) => {
       .then(([register, registerTwo]) => {
         res.render("index", {
           data_user,
+          data_cart,
           register,
           registerTwo,
         });

@@ -3,7 +3,8 @@ const { Pool } = require("pg");
 const controller = {};
 
 controller.index = (req, res) => {
-  const data_user = req.session.value;
+  const data_user = req.session.data_user;
+  const data_cart = req.session.data_cart;
 
   let contentForm = req.body || {};
   let contentFormType = Object.keys(contentForm);
@@ -29,6 +30,7 @@ controller.index = (req, res) => {
           resolve(
             res.render("new-and-featured", {
               data_user,
+              data_cart,
               register,
               // contentFormTypeLength,
               // product: contentFormTypeKeys[0],

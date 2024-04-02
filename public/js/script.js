@@ -167,9 +167,68 @@ if (carShoppingIcon) {
 const btnUserIconCloseOrder = document.getElementById("btnUserIconCloseOrder");
 
 if (btnUserIconCloseOrder) {
-  btnUserIconCloseOrder.addEventListener('click', () => {
+  btnUserIconCloseOrder.addEventListener("click", () => {
     order.style.display = "none";
-  })
+  });
 }
 
-// FUNCTION DATA ENCAPSULATION FOR ORDER
+// CHANGE IMG ORDER
+
+const PImg = document.getElementById("PImg");
+const IImg = document.getElementById("IImg");
+const SColors = document.getElementById("SColors");
+
+const colors = {
+  1: "Red",
+  2: "Blue",
+  3: "Black",
+  4: "Grey",
+  5: "White",
+  6: "Green",
+  7: "Sky Blue",
+  8: "Purple",
+  9: "Violet",
+  10: "Pink",
+  11: "Dark Blue",
+  12: "Apple Green",
+  13: "Orange",
+  14: "Turquoise",
+  15: "Yellow",
+  16: "Brown",
+};
+
+if (SColors) {
+  SColors.addEventListener("change", () => {
+    const valueToSearch = SColors.value;
+
+    let valueMatch = null;
+
+    for (const match in colors) {
+      if (colors[match] === valueToSearch) {
+        valueMatch = match;
+        break;
+      }
+    }
+
+    let pathImg = PImg.src;
+    let altImg = PImg.alt;
+
+    altImg.replace(/\d+/g, valueMatch);
+
+    // Creamos una expresión regular para obtener la ruta relativa
+    const expresionRegular = /http:\/\/localhost:3000\/(.*)/;
+
+    const rutaRelativa = expresionRegular.exec(pathImg)[1];
+
+    const rutaFinal = `../${rutaRelativa}`;
+
+    const img = rutaFinal.split("/")[3];
+
+    let newImg = img.replace(/\d+/g, valueMatch);
+
+    let pathImgNew = rutaFinal.replace(img, newImg);
+
+    PImg.src = pathImgNew;
+    IImg.value = altImg;
+  });
+}

@@ -16,22 +16,23 @@ block main
             form.order__info(action="/add-cart" method="POST")
                 div.order__info__title
                     p#PModel
-                    input#IModel(type="text" name="Model" style="display: none;")
+                    input#IModel(type="text" name="model" style="display: none;")
                 div.order__info__type
                     p#PTypeProduct
-                    input#ITypeProduct(type="text" name="Type_Product" style="display: none;")
+                    input#ITypeProduct(type="text" name="type_product" style="display: none;")
                 div.order__info__price
                     p#PPrice
-                    input#IPrice(type="text" name="Price" style="display: none;")
+                    input#IPrice(type="text" name="price" style="display: none;")
                 div.order__info__colors
                     p Colors
-                    select#SColors(name="Colors")
+                    select#SColors(name="color")
                 div.order__info__sizes#orderInfoSizes
                     p Sizes
-                    select#SSize(name="Sizes")
+                    select#SSize(name="size")
                 div.order__info__quantitys
                     p Quantity
-                    input#PQuantityrs(type="number" min="1" name="Quantity")
+                    input#PQuantityrs(type="number" name="quantity" value="1" min="1")
+                    input#IImg(type="text" name="img" style="display: none;")
                 button(type="submit") Add to cart
         section.products
             form.products_filters#productsFilters(method="post" action="/shopping" autocomplete="off" onsubmit="return ValidateCheckbox();")

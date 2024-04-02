@@ -275,6 +275,7 @@ if (stocks) {
     PPrice.innerHTML = `$${productToOrder.price}`;
     IPrice.value = productToOrder.price;
     PImg.src = `../assets/img/${productToOrder.img[0]}`;
+    PImg.alt = productToOrder.img[0];
 
     order.style.display = "flex";
   });
