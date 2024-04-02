@@ -1295,14 +1295,15 @@ h2 {    font-size: 50px;    }
     justify-content: center;
     width: 50%;
     height: 100%;
+    padding: 25px 50px;
+    background-color: #0386aa;
 }
 
-.order__img_container .order__img_container__img {
-    padding: 25px 50px;
+.order__img_container img {
     width: 80%;
-    height: 80%;
-    background-color: #0386aa;
+    height: auto;
     border-radius: 16px;
+    filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.51));
 }
 
 .order__info {
@@ -1335,11 +1336,26 @@ h2 {    font-size: 50px;    }
 }
 
 .order__info__colors, .order__info__sizes, .order__info__quantitys {
-    font-size: 28px;
-    border: 2px solid  black;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+    width: 80%;
+    font-size: 24px;
+}
+
+.order__info__colors select, .order__info__sizes select, .order__info__quantitys input {
+    border-radius: 5px;
+    padding: 2px 3px;
+}
+
+.order__info__quantitys input {
+    border: none;
+    width: 95px;
 }
 
 .order__info button {
     font-size: 25px;
+    margin-top: 40px;
     background-color: #178348;
 }

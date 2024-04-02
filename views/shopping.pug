@@ -12,29 +12,26 @@ block main
         section.order#order
             span.btn_user_icon_close_order#btnUserIconCloseOrder(class="material-icons-round") close
             div.order__img_container
-                div.order__img_container__img
-            form.order__info(action="" method="POST")
+                img#PImg(src="", alt="")
+            form.order__info(action="/add-cart" method="POST")
                 div.order__info__title
-                    p#PModel Camisa Manga Larga
+                    p#PModel
+                    input#IModel(type="text" name="Model" style="display: none;")
                 div.order__info__type
-                    p#PTypeProduct T-Shirt
+                    p#PTypeProduct
+                    input#ITypeProduct(type="text" name="Type_Product" style="display: none;")
                 div.order__info__price
-                    p#PPrice $80
+                    p#PPrice
+                    input#IPrice(type="text" name="Price" style="display: none;")
                 div.order__info__colors
-                    select#PColors(name="Colorss")
-                        option(value="Red")
-                        option(value="Blue")
-                        option(value="Green")
-                div.order__info__sizes
-                    select#PSize(name="Sizes")
-                        option(value="Red")
-                        option(value="Blue")
-                        option(value="Green")
+                    p Colors
+                    select#SColors(name="Colors")
+                div.order__info__sizes#orderInfoSizes
+                    p Sizes
+                    select#SSize(name="Sizes")
                 div.order__info__quantitys
-                    select#PColoPQuantityrs(name="Quantity")
-                        option(value="Red")
-                        option(value="Blue")
-                        option(value="Green")
+                    p Quantity
+                    input#PQuantityrs(type="number" min="1" name="Quantity")
                 button(type="submit") Add to cart
         section.products
             form.products_filters#productsFilters(method="post" action="/shopping" autocomplete="off" onsubmit="return ValidateCheckbox();")

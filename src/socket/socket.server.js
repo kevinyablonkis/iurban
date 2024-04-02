@@ -167,7 +167,6 @@ const handleConnection = (socket) => {
           productToOrder[Object.keys(productToOrder)[i]] =
             productToOrderValuesUnique;
         }
-        console.log(productToOrder);
         socket.emit("productForAddedToCard", productToOrder);
       }
     });

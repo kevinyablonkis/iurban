@@ -195,7 +195,7 @@ const Clothing = [
   "T-Shirt-Woman",
   "Jeans",
   "Short-Jeans",
-]
+];
 
 const Accessories = [
   "Watch-Digital-2",
@@ -203,11 +203,9 @@ const Accessories = [
   "Watch-Classic",
   "Watch-Elegant",
   "Cap",
-]
+];
 
-const Shoes = [
-  "Simple-Shoes",
-]
+const Shoes = ["Simple-Shoes"];
 
 if (stocks) {
   for (const stock of stocks) {
@@ -224,13 +222,60 @@ if (stocks) {
       }
 
       const typeModel = stock.classList[2];
-      order.style.display = "flex";
 
       socket.emit("dataEncapsulationForOrder", typeModel, nameModel);
     });
   }
 
   socket.on("productForAddedToCard", async (productToOrder) => {
-    console.log("Recibido");
-  })
+    // VISIBLE CONTENT
+    const PModel = document.getElementById("PModel");
+    const PTypeProduct = document.getElementById("PTypeProduct");
+    const SColors = document.getElementById("SColors");
+    const SSize = document.getElementById("SSize");
+    const PPrice = document.getElementById("PPrice");
+    const PImg = document.getElementById("PImg");
+    // INPUT CONTENT
+    const IModel = document.getElementById("IModel");
+    const ITypeProduct = document.getElementById("ITypeProduct");
+    const IPrice = document.getElementById("IPrice");
+
+    PModel.innerHTML = productToOrder.model;
+    IModel.value = productToOrder.model;
+    PTypeProduct.innerHTML = productToOrder.type_product_id;
+    ITypeProduct.value = productToOrder.type_product_id;
+
+    const option = document.querySelectorAll(".option");
+
+    if (option) {
+      for (let i = 0; i < option.length; i++) {
+        SColors.remove(option[i]);
+        SSize.remove(option[i]);
+      }
+    }
+
+    for (let i = 0; i < productToOrder.type_color.length; i++) {
+      const element = productToOrder.type_color[i];
+      SColors.innerHTML += `<option class="option" value="${element}">${element}</option>`;
+    }
+
+    const orderInfoSizes = document.getElementById("orderInfoSizes");
+
+    if (productToOrder.type_size != undefined) {
+      orderInfoSizes.style.display = "flex";
+
+      for (let i = 0; i < productToOrder.type_size.length; i++) {
+        const element = productToOrder.type_size[i];
+        SSize.innerHTML += `<option class="option" value="${element}">${element}</option>`;
+      }
+    } else {
+      orderInfoSizes.style.display = "none";
+    }
+
+    PPrice.innerHTML = `$${productToOrder.price}`;
+    IPrice.value = productToOrder.price;
+    PImg.src = `../assets/img/${productToOrder.img[0]}`;
+
+    order.style.display = "flex";
+  });
 }

@@ -1,5 +1,3 @@
-const controller = require("./account.controller");
-
 const controller = {};
 
 controller.index = (req, res) => {
