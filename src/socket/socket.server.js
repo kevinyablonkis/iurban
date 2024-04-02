@@ -150,16 +150,25 @@ const handleConnection = (socket) => {
       if (err) {
         console.error("Error: ", err);
       } else {
-        const obj = {};
+        const productToOrder = {};
         for (const row of result.rows) {
           for (const [key, value] of Object.entries(row)) {
-            if (!obj[key]) {
-              obj[key] = [];
+            if (!productToOrder[key]) {
+              productToOrder[key] = [];
             }
-            obj[key].push(value);
+            productToOrder[key].push(value);
           }
         }
-        console.log(obj);
+
+        for (let i = 0; i < Object.values(productToOrder).length; i++) {
+          const productToOrderValues = Object.values(productToOrder)[i];
+          const conjunt = new Set(productToOrderValues);
+          const productToOrderValuesUnique = Array.from(conjunt);
+          productToOrder[Object.keys(productToOrder)[i]] =
+            productToOrderValuesUnique;
+        }
+        console.log(productToOrder);
+        socket.emit("productForAddedToCard", productToOrder);
       }
     });
   };

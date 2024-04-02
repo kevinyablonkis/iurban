@@ -13,23 +13,29 @@ block main
             span.btn_user_icon_close_order#btnUserIconCloseOrder(class="material-icons-round") close
             div.order__img_container
                 div.order__img_container__img
-            div.order__info
+            form.order__info(action="" method="POST")
                 div.order__info__title
-                    p Camisa Manga Larga
+                    p#PModel Camisa Manga Larga
                 div.order__info__type
-                    p T-Shirt
+                    p#PTypeProduct T-Shirt
                 div.order__info__price
-                    p $80
+                    p#PPrice $80
                 div.order__info__colors
-                    p Colors
-                    div.order__info__colors__color
+                    select#PColors(name="Colorss")
+                        option(value="Red")
+                        option(value="Blue")
+                        option(value="Green")
                 div.order__info__sizes
-                    p Sizes
-                    div.order__info__sizes__size
+                    select#PSize(name="Sizes")
+                        option(value="Red")
+                        option(value="Blue")
+                        option(value="Green")
                 div.order__info__quantitys
-                    p Quantity
-                    div.order__info__quantitys__quantity
-                button Add to cart
+                    select#PColoPQuantityrs(name="Quantity")
+                        option(value="Red")
+                        option(value="Blue")
+                        option(value="Green")
+                button(type="submit") Add to cart
         section.products
             form.products_filters#productsFilters(method="post" action="/shopping" autocomplete="off" onsubmit="return ValidateCheckbox();")
                 div.one

@@ -1335,23 +1335,8 @@ h2 {    font-size: 50px;    }
 }
 
 .order__info__colors, .order__info__sizes, .order__info__quantitys {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    width: 100%;
     font-size: 28px;
-}
-
-.order__info__quantitys {
-    height: 15%;
-}
-
-.order__info__colors__color, .order__info__sizes__size, .order__info__quantitys__quantity {
-    width: 50px;
-    height: 25px;
-    border: 1px black solid;
-    border-radius: 5px;
-    background-color: green;
+    border: 2px solid  black;
 }
 
 .order__info button {

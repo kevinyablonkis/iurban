@@ -224,9 +224,13 @@ if (stocks) {
       }
 
       const typeModel = stock.classList[2];
-      // order.style.display = "flex";
+      order.style.display = "flex";
 
       socket.emit("dataEncapsulationForOrder", typeModel, nameModel);
     });
   }
+
+  socket.on("productForAddedToCard", async (productToOrder) => {
+    console.log("Recibido");
+  })
 }
