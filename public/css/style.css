@@ -274,8 +274,9 @@ h2 {    font-size: 50px;    }
     flex-direction: column;
     gap: 5px;
     padding: 5px;
-    height: 76%;
+    height: 396px;
     color: black;
+    overflow: scroll;
 }
 
 .car_shopping__container__products__product {
@@ -313,7 +314,7 @@ h2 {    font-size: 50px;    }
 
 .products__product__img {
     width: 15%;
-    padding: 0  5px;
+    padding: 5px;
     height: auto;
 }
 
@@ -1143,7 +1144,6 @@ h2 {    font-size: 50px;    }
 .stock {
     width: 185px;
     height: 250px;
-    background-color: rgb(127, 4, 4);
     border-radius: 5px;
     transition: ease .5s;
     overflow: hidden;

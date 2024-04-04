@@ -213,7 +213,7 @@ if (SColors) {
     let pathImg = PImg.src;
     let altImg = PImg.alt;
 
-    altImg.replace(/\d+/g, valueMatch);
+    altImg = altImg.replace(/\d+/g, valueMatch);
 
     // Creamos una expresión regular para obtener la ruta relativa
     const expresionRegular = /http:\/\/localhost:3000\/(.*)/;
@@ -230,5 +230,25 @@ if (SColors) {
 
     PImg.src = pathImgNew;
     IImg.value = altImg;
+  });
+}
+
+// FILTER SHOPPING
+
+const stocks = document.querySelectorAll(".stock");
+const BProductsSearch = document.getElementById("BProductsSearch");
+
+if (stocks) {
+  BProductsSearch.addEventListener("click", () => {
+    const IProductsSearch = document.getElementById("IProductsSearch").value;
+
+    stocks.forEach((stock) => {
+      let stockClass = stock.classList[1].toLowerCase();
+      if (!(stockClass === IProductsSearch)) {
+        stock.style.display = "none";
+      } else {
+        stock.style.display = "flex";
+      }
+    });
   });
 }

@@ -3,7 +3,6 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const flash = require("connect-flash");
 
-const bodyParser = require("body-parser");
 const socketIo = require("socket.io");
 const path = require("path");
 const { Pool } = require("pg");
@@ -16,9 +15,6 @@ const io = socketIo(server);
 
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

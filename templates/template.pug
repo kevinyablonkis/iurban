@@ -37,15 +37,16 @@ html(lang="en")
                                         div.car_shopping__container__products__empty
                                             p Empty cart.
                                     else
-                                        div.car_shopping__container__products__product
-                                            img(src=`../assets/img/${data_cart.img}`, alt=`${data_cart.img}`).products__product__img
-                                            div.products__product__info
-                                                p.products__product__info__p_one #{data_cart.model}
-                                                p.products__product__info__p_two #{data_cart.type_product}
-                                            div.products__product__stock
-                                                p.products__product__stock__p #{data_cart.quantity}
-                                            div.products__product__price
-                                                p.products__product__price__p $#{data_cart.price}
+                                        each row in data_cart
+                                            div.car_shopping__container__products__product
+                                                img(src=`../assets/img/${row.img}`, alt=`${row.img}`).products__product__img
+                                                div.products__product__info
+                                                    p.products__product__info__p_one #{row.model}
+                                                    p.products__product__info__p_two #{row.type_product}
+                                                div.products__product__stock
+                                                    p.products__product__stock__p #{row.quantity}
+                                                div.products__product__price
+                                                    p.products__product__price__p $#{row.price}
                                 div.car_shopping__container__footer
                                     div.car_shopping__container__footer__total
                                         span.total Total

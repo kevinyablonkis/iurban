@@ -108,8 +108,8 @@ block main
                             else
                                 p= `${typeProduct}`
                     div.products_search_btn
-                        input(type="text" placeholder="Search")
-                        span(class="material-icons-round") search
+                        input#IProductsSearch(type="text" placeholder="Search")
+                        span#BProductsSearch(class="material-icons-round") search
                 div.products_search_stock
                     each row in register
                         div.stock#stock(class=`${row.model}`)
