@@ -198,7 +198,7 @@ const colors = {
 };
 
 if (SColors) {
-  SColors.addEventListener("change", () => {
+  const changeImg = () => {
     const valueToSearch = SColors.value;
 
     let valueMatch = null;
@@ -230,6 +230,26 @@ if (SColors) {
 
     PImg.src = pathImgNew;
     IImg.value = altImg;
+
+    return altImg;
+  };
+
+  SColors.addEventListener("change", () => {
+    changeImg();
+  });
+
+  const btnOrder = document.getElementById("btnOrder");
+  const orderInfo = document.getElementById("orderInfo");
+
+  orderInfo.addEventListener("submit", (e) => {
+    e.preventDefault();
+  });
+
+  btnOrder.addEventListener("click", () => {
+    let altImg = changeImg();
+    IImg.value = altImg;
+    console.log(altImg);
+    orderInfo.submit();
   });
 }
 

@@ -13,7 +13,7 @@ block main
             span.btn_user_icon_close_order#btnUserIconCloseOrder(class="material-icons-round") close
             div.order__img_container
                 img#PImg(src="", alt="")
-            form.order__info(action="/add-cart" method="POST")
+            form.order__info#orderInfo(action="/add-cart" method="POST")
                 div.order__info__title
                     p#PModel
                     input#IModel(type="text" name="model" style="display: none;")
@@ -33,7 +33,7 @@ block main
                     p Quantity
                     input#PQuantityrs(type="number" name="quantity" value="1" min="1")
                     input#IImg(type="text" name="img" style="display: none;")
-                button(type="submit") Add to cart
+                button#btnOrder Add to cart
         section.products
             form.products_filters#productsFilters(method="post" action="/shopping" autocomplete="off" onsubmit="return ValidateCheckbox();")
                 div.one
