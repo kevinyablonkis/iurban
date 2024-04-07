@@ -61,7 +61,7 @@ h2 {    font-size: 50px;    }
     transition: ease .3s;
 }
 
-#scrollButton {
+.scroll_button {
     display: none;
 }
 
@@ -274,7 +274,7 @@ h2 {    font-size: 50px;    }
     flex-direction: column;
     gap: 5px;
     padding: 5px;
-    height: 396px;
+    height: 75%;
     color: black;
     overflow: scroll;
 }
@@ -357,7 +357,7 @@ h2 {    font-size: 50px;    }
     align-items: center;
     justify-content: space-between;
     padding: 10px 25px 5px;
-    height: 14%;
+    height: 15%;
     background-color: #10713c;
 }
 
@@ -481,14 +481,14 @@ h2 {    font-size: 50px;    }
     background-color: rgba(84, 84, 84, 0.495);
 }
 
-#btnDataUserClose {
+.btn_data_user_close {
     display: flex;
     background-color: #10713c;
     font-size: 40px;
     padding: 5px;
 }
 
-#btnDataUserClose:hover {
+.btn_data_user_close:hover {
     display: flex;
     background-color: #144e2e;
 }
@@ -566,11 +566,11 @@ h2 {    font-size: 50px;    }
     gap: 1em;
 }
 
-.men_women, .login, .new-and-featured, .season, .signup, .account {
+.men_women, .login, .new-and-featured, .title_shopping, .signup, .account {
     margin-top: 65px;
 }
 
-.container_3_box, .men_or_women, .men_women, .men_women_content, .new-and-featured, .season, .products{
+.container_3_box, .men_or_women, .men_women, .men_women_content, .new-and-featured, .title_shopping, .products{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -578,11 +578,11 @@ h2 {    font-size: 50px;    }
     padding-top: 40px;
 }
 
-.men_or_women, .indice, .men_women_content, .season_container {
+.men_or_women, .indice, .men_women_content  {
     flex-direction: row;
 }
 
-.container_3_box, .men_women, .new-and-featured, .season {
+.container_3_box, .men_women, .new-and-featured, .title_shopping {
     flex-direction: column;
 }
 
@@ -754,7 +754,7 @@ h2 {    font-size: 50px;    }
 
 .men_women_card_stock:hover {
     transform: scale(103%);
-    filter: drop-shadow(8px 8px 12px rgba(0, 0, 0, 0.51));
+    filter: drop-shadow(3px 3px 12px rgba(0, 0, 0, 0.51));
 }
 
 .container_3_box_card_stock , .the_most_sold_card_stock , .men_women_card_stock , .men_women_content_div , .new-and-featured_container_one  {
@@ -774,7 +774,6 @@ h2 {    font-size: 50px;    }
 }
 
 .container_3_box_card_stock img, .the_most_sold_card_stock img, .men_women_card_stock img, .men_women_content_div img, .new-and-featured_container_one img {
-    /* padding: 15px; */
     width: 100%;
     height: 100%;
     filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.51));
@@ -865,10 +864,6 @@ h2 {    font-size: 50px;    }
     gap: 8px;
 }
 
-/* .men_women h1, .new-and-featured h1, .season h1 {
-    font-size: 35px;
-} */
-
 .men_women_content {
     height: 450px;
     padding: 0;
@@ -955,20 +950,6 @@ h2 {    font-size: 50px;    }
 
 .new-and-featured {
     padding-bottom: 70px;
-}
-
-.season_card {
-    width: 240px;
-    height: 260px;
-    background-color: #808080;
-    border-radius: 5px;
-}
-
-.season_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
 }
 
 .products  {
@@ -1073,7 +1054,7 @@ h2 {    font-size: 50px;    }
     transform: scale(103%);
 }
 
-#errorEmail, #errorUsername, #errorKeys, #errorUsernameLogin , #errorPasswordLogin {
+.error_email, .error_username, .error_keys, .error_username_login , .error_password_login {
     display: none;
     padding: 5px;
     border-radius: 8px;
@@ -1458,7 +1439,7 @@ h2 {    font-size: 50px;    }
         transition: ease .3s;
     }
     
-    #scrollButton {
+    .scroll_button {
         display: none;
     }
     
@@ -1878,14 +1859,14 @@ h2 {    font-size: 50px;    }
         background-color: rgba(84, 84, 84, 0.495);
     }
     
-    #btnDataUserClose {
+    .btn_data_user_close {
         display: flex;
         background-color: #10713c;
         font-size: 40px;
         padding: 5px;
     }
     
-    #btnDataUserClose:hover {
+    .btn_data_user_close:hover {
         display: flex;
         background-color: #144e2e;
     }
@@ -1963,11 +1944,11 @@ h2 {    font-size: 50px;    }
         gap: 1em;
     }
     
-    .men_women, .login, .new-and-featured, .season, .signup, .account {
+    .men_women, .login, .new-and-featured, .title_shopping, .signup, .account {
         margin-top: 65px;
     }
     
-    .container_3_box, .men_or_women, .men_women, .men_women_content, .new-and-featured, .season, .products{
+    .container_3_box, .men_or_women, .men_women, .men_women_content, .new-and-featured, .title_shopping, .products{
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1975,11 +1956,11 @@ h2 {    font-size: 50px;    }
         padding-top: 40px;
     }
     
-    .men_or_women, .indice, .men_women_content, .season_container {
+    .men_or_women, .indice, .men_women_content  {
         flex-direction: row;
     }
     
-    .container_3_box, .men_women, .new-and-featured, .season {
+    .container_3_box, .men_women, .new-and-featured, .title_shopping {
         flex-direction: column;
     }
     
@@ -2262,10 +2243,6 @@ h2 {    font-size: 50px;    }
         gap: 8px;
     }
     
-    /* .men_women h1, .new-and-featured h1, .season h1 {
-        font-size: 35px;
-    } */
-    
     .men_women_content {
         height: 450px;
         padding: 0;
@@ -2352,20 +2329,6 @@ h2 {    font-size: 50px;    }
     
     .new-and-featured {
         padding-bottom: 70px;
-    }
-    
-    .season_card {
-        width: 240px;
-        height: 260px;
-        background-color: #808080;
-        border-radius: 5px;
-    }
-    
-    .season_container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
     }
     
     .products  {
@@ -2470,7 +2433,7 @@ h2 {    font-size: 50px;    }
         transform: scale(103%);
     }
     
-    #errorEmail, #errorUsername, #errorKeys, #errorUsernameLogin , #errorPasswordLogin {
+    .error_email, .error_username, .error_keys, .error_username_login , .error_password_login {
         display: none;
         padding: 5px;
         border-radius: 8px;

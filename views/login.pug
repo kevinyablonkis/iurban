@@ -8,9 +8,9 @@ block main
                 div.login_form_container
                     label(for="usernameLogin") Username
                     input(id="usernameLogin" name="username" type="text" autofocus required)
-                    small(id="errorUsernameLogin") Unregistered user.
+                    small(class="error_username_login" id="errorUsernameLogin") Unregistered user.
                     label(for="passwordLogin") Password
                     input(id="passwordLogin" name="password" type="password" autofocus required)
-                    small(id="errorPasswordLogin") Incorrect password.
+                    small(class="error_password_login" id="errorPasswordLogin") Incorrect password.
                 button(id="btnLogin" type="submit") Log In
         a(href="/signup") Create account.

@@ -2,13 +2,8 @@ extends ../templates/template
 
 block main
     main.main
-        section.season
-            h1 Favorite Clothes
-            div.season_container
-                div.season_card
-                div.season_card
-                div.season_card
-                div.season_card
+        section.title_shopping
+            h1 Shopping
         section.order#order
             span.btn_user_icon_close_order#btnUserIconCloseOrder(class="material-icons-round") close
             div.order__img_container
@@ -108,7 +103,7 @@ block main
                             else
                                 p= `${typeProduct}`
                     div.products_search_btn
-                        input#IProductsSearch(type="text" placeholder="Search")
+                        input#IProductsSearch(type="text" placeholder="Search" autocomplete="off")
                         span#BProductsSearch(class="material-icons-round") search
                 div.products_search_stock
                     each row in register

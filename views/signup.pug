@@ -12,10 +12,10 @@ block main
                     input(id="lastName" name="last_name" type="text" required)
                     label(for="email") E-Mail
                     input(id="email" name="email" type="email" required)
-                    small(id="errorEmail") Email already registered.
+                    small(class="error_email" id="errorEmail") Email already registered.
                     label(for="username") Username
                     input(id="username" name="username" type="text" required)
-                    small(id="errorUsername") User already in use.
+                    small(class="error_username" id="errorUsername") User already in use.
                     label(for="password") Password
                     div.container_password_visibility
                         input(id="password" class="visibility" name="password" type="password" required)
@@ -24,6 +24,6 @@ block main
                     div.container_password_visibility
                         input(id="repeatPassword" class="visibility" name="r_password" type="password" required)
                         span(id="repeatPasswordVisibility" class="password_visibility" class="material-icons-round") visibility
-                    small(id="errorKeys") The keys do not match.
+                    small(class="error_keys" id="errorKeys") The keys do not match.
                 button(id="btnEmail" type="submit") Sign Up
         a(href="/login") Open session.

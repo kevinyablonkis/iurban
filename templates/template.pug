@@ -58,7 +58,7 @@ html(lang="en")
                             div#dataUser.data_user
                                 span.btn_user_icon_close#btnUserIconClose(class="material-icons-round") close
                                 div.data_user__container
-                                    li: span#btnDataUserClose(class="material-icons-round") person
+                                    li: span.btn_data_user_close(class="material-icons-round") person
                                     div.data_user__container_info#dataUserContainerInfo
                                         span.data_user__full_name #{data_user.first_name} #{data_user.last_name}
                                         span.data_user__email #{data_user.email}
@@ -114,7 +114,7 @@ html(lang="en")
                             li: a(href=""): img(loading="lazy" src="../assets/img/instagram.webp" alt="instagram" width="50px" height="50px")
                             li: a(href=""): img(loading="lazy" src="../assets/img/linkedin.webp" alt="linkedin" width="50px" height="50px")
         block buttonScroll
-            a.scroll_up#scrollButton(href="#header"): span.material-icons-round keyboard_double_arrow_up
+            a(class="scroll_up scroll_button" href="#header"): span.material-icons-round keyboard_double_arrow_up
         block footer
             footer.footer
                 nav.footer_nav

@@ -19,25 +19,6 @@ function SendForm() {
   productsFilters.submit();
 }
 
-// VALIDAR CHECKBOX
-
-function ValidateCheckbox() {
-  const checkboxes = document.getElementById("Option");
-  let contadorChecked = 0;
-
-  checkboxes.forEach(function (checkbox) {
-    if (checkbox.checked) {
-      contadorChecked++;
-    }
-  });
-
-  if (contadorChecked !== 1) {
-    alert("Debe seleccionar exactamente un checkbox.");
-    return false;
-  }
-  return true;
-}
-
 // CHECKED INPUT OPTION
 
 const inputChecked1 = document.querySelector(".inputChecked-1");
@@ -58,7 +39,7 @@ window.addEventListener("load", changeMenuWithURL);
 // DO SCROLL UP && SEE INDICE IN PAGE
 
 document.addEventListener("DOMContentLoaded", function () {
-  let scrollButton = document.getElementById("scrollButton");
+  let scrollButton = document.querySelector(".scroll_button");
   let indice = document.getElementById("indice");
   let url = window.location.href;
 
@@ -139,10 +120,12 @@ const dataUserOptions = document.getElementById("dataUserOptions");
 if (btnDataUserOpen) {
   btnDataUserOpen.addEventListener("click", () => {
     dataUser.style.display = "flex";
+    document.body.style.overflow = "hidden";
   });
 
   btnUserIconClose.addEventListener("click", () => {
     dataUser.style.display = "none";
+    document.body.style.overflow = "auto";
   });
 }
 
@@ -155,10 +138,12 @@ const btnUserIconCloseCar = document.getElementById("btnUserIconCloseCar");
 if (carShoppingIcon) {
   carShoppingIcon.addEventListener("click", () => {
     carShoppingContainer.style.transform = "translateX(0%)";
+    document.body.style.overflow = "hidden";
   });
 
   btnUserIconCloseCar.addEventListener("click", () => {
     carShoppingContainer.style.transform = "translateX(100%)";
+    document.body.style.overflow = "auto";
   });
 }
 
@@ -169,6 +154,7 @@ const btnUserIconCloseOrder = document.getElementById("btnUserIconCloseOrder");
 if (btnUserIconCloseOrder) {
   btnUserIconCloseOrder.addEventListener("click", () => {
     order.style.display = "none";
+    document.body.style.overflow = "auto";
   });
 }
 

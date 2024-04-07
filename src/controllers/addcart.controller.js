@@ -13,8 +13,9 @@ controller.index = async (req, res) => {
   } else {
     console.log(req.session.data_cart);
 
-    req.session.data_cart[req.session.data_cart.lenght] = contentForm;
-    // req.session.data_cart[1] = contentForm;
+    req.session.data_cart.push(contentForm);
+
+    console.log(req.session);
   }
 
   console.log(req.session);
