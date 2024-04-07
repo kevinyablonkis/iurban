@@ -261,3 +261,35 @@ if (stocks) {
     });
   });
 }
+
+// READING OF PRODUCTS CART
+
+const totalPriceElement = document.querySelector(".total_price");
+if (!totalPriceElement) {
+  console.error("Total price element not found."); // Handle missing element
+} else {
+  const products = Array.from(
+    document.querySelectorAll(".car_shopping__container__products__product")
+  );
+
+  let totalPrice = 0;
+
+  products.forEach((product) => {
+    const quantityElement = product.querySelector(
+      ".products__product__stock__p"
+    );
+    const priceElement = product.querySelector(".products__product__price__p");
+
+    if (quantityElement && priceElement) {
+      const quantity = Number(quantityElement.textContent);
+      const price = Number(priceElement.textContent.replace(/[$,]/g, ""));
+
+      const productTotalPrice = quantity * price;
+      totalPrice += productTotalPrice;
+    } else {
+      console.warn("Missing quantity or price element for a product.");
+    }
+  });
+
+  totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
+}
