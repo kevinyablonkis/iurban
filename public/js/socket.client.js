@@ -212,7 +212,10 @@ if (stocks) {
     stock.addEventListener("click", () => {
       const ListClassStock = stock.classList;
       const nameModel = stock.classList[1];
-    document.body.style.overflow = "hidden";
+      const shadow = document.querySelector('.shadow');
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "relative";
+      shadow.style.display = "flex";
 
       if (Clothing.includes(nameModel)) {
         stock.className += " Clothing";

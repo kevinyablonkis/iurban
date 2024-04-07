@@ -150,11 +150,14 @@ if (carShoppingIcon) {
 // CLOSE ORDER
 
 const btnUserIconCloseOrder = document.getElementById("btnUserIconCloseOrder");
+const shadow = document.querySelector(".shadow");
 
 if (btnUserIconCloseOrder) {
   btnUserIconCloseOrder.addEventListener("click", () => {
     order.style.display = "none";
     document.body.style.overflow = "auto";
+    document.body.style.position = "static";
+    shadow.style.display = "none";
   });
 }
 

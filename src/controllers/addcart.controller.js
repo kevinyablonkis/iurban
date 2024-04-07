@@ -11,14 +11,8 @@ controller.index = async (req, res) => {
     req.session.data_cart = [];
     req.session.data_cart[0] = contentForm;
   } else {
-    console.log(req.session.data_cart);
-
     req.session.data_cart.push(contentForm);
-
-    console.log(req.session);
   }
-
-  console.log(req.session);
 
   res.redirect("/shopping");
 };
