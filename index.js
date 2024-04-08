@@ -1,7 +1,5 @@
 const express = require("express");
 const session = require("express-session");
-const flash = require("connect-flash");
-
 const socketIo = require("socket.io");
 const path = require("path");
 const http = require("http");
@@ -17,8 +15,6 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(flash());
-
 app.use(
   session({
     secret: "iurban-session",
@@ -26,13 +22,6 @@ app.use(
     saveUninitialized: true,
   })
 );
-
-// GLOBAL VARIABLE
-
-app.use((req, res, next) => {
-  app.locals.message = req.flash("data_user");
-  next();
-});
 
 app.use(express.static(path.join(__dirname, "./public")));
 

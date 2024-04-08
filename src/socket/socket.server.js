@@ -1,5 +1,4 @@
 const { Pool } = require("pg");
-const validator = require("validator");
 const io = require("../../index");
 
 const pool = new Pool({

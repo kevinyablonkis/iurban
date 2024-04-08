@@ -6,11 +6,6 @@ controller.index = (req, res) => {
   const data_user = req.session.data_user;
   const data_cart = req.session.data_cart;
 
-  // let contentForm = req.body || {};
-  // let contentFormType = Object.keys(contentForm);
-  // let contentFormTypeKeys = Object.keys(contentForm);
-  // let contentFormTypeLength = Object.keys(contentForm).length;
-
   const pool = new Pool({
     user: "postgres",
     host: "localhost",
@@ -32,9 +27,6 @@ controller.index = (req, res) => {
               data_user,
               data_cart,
               register,
-              // contentFormTypeLength,
-              // product: contentFormTypeKeys[0],
-              // typeProduct: contentFormTypeKeys[1],
             })
           );
         }
