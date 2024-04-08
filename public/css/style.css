@@ -1068,19 +1068,14 @@ h2 {    font-size: 50px;    }
     transform: scale(103%);
 }
 
-.error_email, .error_username, .error_keys, .error_username_login , .error_password_login {
+.error_email, .error_username, .error_keys, .error_username_login, .error_signup__space, .error_password_login, .error_login__space {
     display: none;
     padding: 5px;
     border-radius: 8px;
     background-color: rgb(163, 44, 44);
     color: white;
     font-size: 15px;
-    /* font-weight: bold; */
 }
-
-/* .input_product {
-    opacity: 1;
-} */
 
 .products_search {
     display: flex;
@@ -2473,7 +2468,7 @@ h2 {    font-size: 50px;    }
         transform: scale(103%);
     }
     
-    .error_email, .error_username, .error_keys, .error_username_login , .error_password_login {
+    .error_email, .error_username, .error_keys, .error_username_login , .error_password_login, .error_username_login__space, .error_password_login__space {
         display: none;
         padding: 5px;
         border-radius: 8px;

@@ -1,4 +1,5 @@
 const { Pool } = require("pg");
+const validator = require("validator");
 const io = require("../../index");
 
 const pool = new Pool({
@@ -33,7 +34,12 @@ const handleConnection = (socket) => {
   };
 
   socket.on("verificarEmail", (email) => {
-    verificarEmail(email);
+    if (!/\s/.test(email)) {
+      verificarEmail(email);
+    } else {
+      let emailRegistrado = 2;
+      socket.emit("resultadoVerificacionEmail", emailRegistrado);
+    }
   });
 
   const verificarUsername = (username) => {
@@ -57,7 +63,12 @@ const handleConnection = (socket) => {
   };
 
   socket.on("verificarUsername", (username) => {
-    verificarUsername(username);
+    if (!/\s/.test(username)) {
+      verificarUsername(username);
+    } else {
+      let usernameRegistrado = 2;
+      socket.emit("resultadoVerificacionUsername", usernameRegistrado);
+    }
   });
 
   const logearVerificacionUsername = (usernameLogin) => {
@@ -119,8 +130,16 @@ const handleConnection = (socket) => {
   socket.on(
     "logearVerificacionUsernameAndPassword",
     (usernameLogin, passwordLogin) => {
-      logearVerificacionUsername(usernameLogin);
-      logearVerificacionPassword(usernameLogin, passwordLogin);
+      if (!/\s/.test(usernameLogin) && !/\s/.test(passwordLogin)) {
+        logearVerificacionUsername(usernameLogin);
+        logearVerificacionPassword(usernameLogin, passwordLogin);
+      } else {
+        let passwordCorrecta = 2;
+        socket.emit("resultadoLogearVerificacionPassword", passwordCorrecta);
+
+        let usernameRegistrado = 2;
+        socket.emit("resultadoLogearVerificacionUsername", usernameRegistrado);
+      }
     }
   );
 
@@ -173,6 +192,7 @@ const handleConnection = (socket) => {
   };
 
   socket.on("dataEncapsulationForOrder", async (typeModel, nameModel) => {
+    // AQUI VA UNA VALIDACION
     await dataEncapsulationForOrder(typeModel, nameModel);
   });
 };

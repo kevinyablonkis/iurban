@@ -239,7 +239,6 @@ if (SColors) {
   btnOrder.addEventListener("click", () => {
     let altImg = changeImg();
     IImg.value = altImg;
-    console.log(altImg);
     orderInfo.submit();
   });
 }
@@ -249,7 +248,7 @@ if (SColors) {
 const stocks = document.querySelectorAll(".stock");
 const BProductsSearch = document.getElementById("BProductsSearch");
 
-if (stocks) {
+if (stocks && BProductsSearch) {
   BProductsSearch.addEventListener("click", () => {
     const IProductsSearch = document.getElementById("IProductsSearch").value;
 
@@ -267,9 +266,7 @@ if (stocks) {
 // READING OF PRODUCTS CART
 
 const totalPriceElement = document.querySelector(".total_price");
-if (!totalPriceElement) {
-  console.error("Total price element not found."); // Handle missing element
-} else {
+if (totalPriceElement) {
   const products = Array.from(
     document.querySelectorAll(".car_shopping__container__products__product")
   );

@@ -21,6 +21,7 @@ if (form) {
     const errorKeys = document.getElementById("errorKeys");
     const password = document.getElementById("password");
     const repeatPassword = document.getElementById("repeatPassword");
+
     if (password.value === repeatPassword.value) {
       password.style.border = "2px green solid";
       repeatPassword.style.border = "2px green solid";
@@ -38,10 +39,19 @@ if (form) {
     return new Promise((resolve) => {
       const errorEmail = document.getElementById("errorEmail");
       const emailStyle = document.getElementById("email");
+      const usernameStyle = document.getElementById("username");
+      const errorSignupSpace = document.getElementById("errorSignupSpace");
 
       socket.on("resultadoVerificacionEmail", (emailRegistrado) => {
-        if (emailRegistrado) {
+        if (emailRegistrado == true) {
           errorEmail.style.display = "flex";
+          errorSignupSpace.style.display = "none";
+          emailStyle.style.border = "2px red solid";
+          resolve(emailRegistrado);
+        } else if (emailRegistrado == 2) {
+          errorEmail.style.display = "none";
+          errorSignupSpace.style.display = "flex";
+          usernameStyle.style.border = "2px red solid";
           emailStyle.style.border = "2px red solid";
           resolve(emailRegistrado);
         } else {
@@ -56,12 +66,21 @@ if (form) {
   const smallUsername = async () => {
     return new Promise((resolve) => {
       const errorUsername = document.getElementById("errorUsername");
+      const emailStyle = document.getElementById("email");
       const usernameStyle = document.getElementById("username");
+      const errorSignupSpace = document.getElementById("errorSignupSpace");
 
       socket.on("resultadoVerificacionUsername", (usernameRegistrado) => {
-        if (usernameRegistrado) {
+        if (usernameRegistrado == true) {
           errorUsername.style.display = "flex";
+          errorSignupSpace.style.display = "none";
           usernameStyle.style.border = "2px red solid";
+          resolve(usernameRegistrado);
+        } else if (usernameRegistrado == 2) {
+          errorUsername.style.display = "none";
+          errorSignupSpace.style.display = "flex";
+          usernameStyle.style.border = "2px red solid";
+          emailStyle.style.border = "2px red solid";
           resolve(usernameRegistrado);
         } else {
           errorUsername.style.display = "none";
@@ -82,9 +101,12 @@ if (form) {
     const password = await verificarIgualdadPassword();
 
     if (password == false && email == false && username == false) {
+      errorSignupSpace.style.display = "none";
       signupContainer.style.height = "700px";
-      form.submit();
+    } else if (email == 2 || username == 2) {
+      errorSignupSpace.style.display = "flex";
     } else {
+      errorSignupSpace.style.display = "none";
       signupContainer.style.height = "800px";
     }
   });
@@ -115,14 +137,23 @@ if (loginForm) {
     return new Promise((resolve) => {
       const errorUsernameLogin = document.getElementById("errorUsernameLogin");
       const usernameLogin = document.getElementById("usernameLogin");
+      const passwordLogin = document.getElementById("passwordLogin");
+      const errorLoginSpace = document.getElementById("errorLoginSpace");
 
       socket.on("resultadoLogearVerificacionUsername", (usernameRegistrado) => {
         if (usernameRegistrado == false) {
           errorUsernameLogin.style.display = "flex";
+          errorLoginSpace.style.display = "none";
           usernameLogin.style.border = "2px red solid";
           resolve(usernameRegistrado);
+        } else if (usernameRegistrado == 2) {
+          errorUsernameLogin.style.display = "none";
+          errorLoginSpace.style.display = "flex";
+          usernameLogin.style.border = "2px red solid";
+          passwordLogin.style.border = "2px red solid";
         } else {
           errorUsernameLogin.style.display = "none";
+          errorLoginSpace.style.display = "none";
           usernameLogin.style.border = "2px green solid";
           resolve(usernameRegistrado);
         }
@@ -134,17 +165,25 @@ if (loginForm) {
     return new Promise((resolve) => {
       const errorPasswordLogin = document.getElementById("errorPasswordLogin");
       const passwordLogin = document.getElementById("passwordLogin");
+      const errorLoginSpace = document.getElementById("errorLoginSpace");
 
       socket.on(
         "resultadoLogearVerificacionPassword",
         (passwordCorrecta, data) => {
           if (passwordCorrecta == false) {
             errorPasswordLogin.style.display = "flex";
+            errorLoginSpace.style.display = "none";
             passwordLogin.style.border = "2px red solid";
             const valor = { passwordCorrecta, data };
             resolve(valor);
+          } else if (passwordCorrecta == 2) {
+            errorPasswordLogin.style.display = "none";
+            errorLoginSpace.style.display = "flex";
+            usernameLogin.style.border = "2px red solid";
+            passwordLogin.style.border = "2px red solid";
           } else {
             errorPasswordLogin.style.display = "none";
+            errorLoginSpace.style.display = "none";
             passwordLogin.style.border = "2px green solid";
             const valor = { passwordCorrecta, data };
             resolve(valor);
@@ -212,7 +251,7 @@ if (stocks) {
     stock.addEventListener("click", () => {
       const ListClassStock = stock.classList;
       const nameModel = stock.classList[1];
-      const shadow = document.querySelector('.shadow');
+      const shadow = document.querySelector(".shadow");
       document.body.style.overflow = "hidden";
       document.body.style.position = "relative";
       shadow.style.display = "flex";

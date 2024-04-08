@@ -1,11 +1,9 @@
 const express = require("express");
-const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const flash = require("connect-flash");
 
 const socketIo = require("socket.io");
 const path = require("path");
-const { Pool } = require("pg");
 const http = require("http");
 
 const app = express();
@@ -30,6 +28,7 @@ app.use(
 );
 
 // GLOBAL VARIABLE
+
 app.use((req, res, next) => {
   app.locals.message = req.flash("data_user");
   next();
@@ -39,6 +38,8 @@ app.use(express.static(path.join(__dirname, "./public")));
 
 const socketIO = require("./src/socket/socket.server");
 io.on("connection", socketIO.handleConnection);
+
+// PATH
 
 app.use(require("./src/routes/index.route"));
 app.use(require("./src/routes/men.route"));
