@@ -521,7 +521,7 @@ h2 {    font-size: 50px;    }
     position: absolute;
     left: 0;
     right: 0;
-    background-color: transparent;
+    background-color: #3d679f;
     z-index: 111;
 }
 

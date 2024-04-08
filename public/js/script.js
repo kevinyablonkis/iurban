@@ -6,7 +6,9 @@ function changeMenuWithURL() {
 
   const header = document.getElementById("header");
 
-  if (url.length > 22) {
+  if (url.length <= 22) {
+    header.style.backgroundColor = "transparent";
+  } else {
     header.style.backgroundColor = "#3d679f";
   }
 }
