@@ -103,6 +103,7 @@ if (form) {
     if (password == false && email == false && username == false) {
       errorSignupSpace.style.display = "none";
       signupContainer.style.height = "700px";
+      form.submit();
     } else if (email == 2 || username == 2) {
       errorSignupSpace.style.display = "flex";
     } else {

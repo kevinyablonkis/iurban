@@ -3,7 +3,7 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        meta(name="description" content="IUrban: Tu tienda de ropa urbana con las últimas tendencias. Encuentra la ropa urbana más actual para hombre y mujer en IUrban. Desde streetwear hasta looks casuales, tenemos todo lo que necesitas para expresar tu estilo único. Compra online con envío gratuito a toda Venezuela. Descubre las mejores marcas: Nike, Adidas, Puma, Supreme, Stüssy, Off-White y muchas más... Aprovecha nuestras ofertas y promociones exclusivas. Síguenos en redes sociales para estar al día de las últimas novedades. IUrban: Vístete con tu propia personalidad.")
+        meta(name="description" content="IUrban: Your urban clothing store with the latest trends. Find the most current urban clothing for men and women at IUrban. From streetwear to casual looks, we have everything you need to express your unique style. Buy online with free shipping to all of Venezuela. Discover the best brands: Nike, Adidas, Puma, Supreme, Stüssy, Off-White and many more... Take advantage of our exclusive offers and promotions. Follow us on social networks to stay up to date with the latest news. IUrban: Dress with your own personality.")
         //- LOGO
         link(rel="shortcut icon" href="/assets/icon/logo.ico" type="image/x-icon")
         link(rel="stylesheet" href="../css/normalize.css")
@@ -64,7 +64,6 @@ html(lang="en")
                                         span.data_user__full_name #{data_user.first_name} #{data_user.last_name}
                                         span.data_user__email #{data_user.email}
                                 div.data_user__options#dataUserOptions
-                                    a(href="/account") Account
                                     a.logout(href="/logout") Log Out
                         else
                             li: a(href="/signup" title="Create Account"):  span(class="material-icons-round") account_circle
