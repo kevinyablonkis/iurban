@@ -33,12 +33,12 @@ html(lang="en")
                                     span Shopping Cart
                                     span.btn_user_icon_close_car#btnUserIconCloseCar(class="material-icons-round") close
                                 div.car_shopping__container__products
-                                    if (data_cart == undefined)
+                                    if (data_cart == undefined || data_cart.length < 1)
                                         div.car_shopping__container__products__empty
                                             p Empty cart.
                                     else
                                         each row in data_cart
-                                            div.container_product
+                                            div.container_product(class=`${row.id}`)
                                                 div.car_shopping__container__products__product
                                                     img(src=`../assets/img/${row.img}`, alt=`${row.img}`).products__product__img
                                                     div.products__product__info
@@ -50,6 +50,8 @@ html(lang="en")
                                                     div.products__product__price
                                                         p.products__product__price__p $#{row.price}
                                                 span.span_delete(class="material-icons-round") deleted
+                                                form.form_span_delete(action="/delete-cart" method="POST" style="display: none;")
+                                                    input.i_id_span(type="text" name="id")
                                 div.car_shopping__container__footer
                                     div.car_shopping__container__footer__total
                                         span.total Total

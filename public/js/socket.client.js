@@ -250,7 +250,6 @@ const Shoes = ["Simple-Shoes"];
 if (stocks) {
   for (const stock of stocks) {
     stock.addEventListener("click", () => {
-      const ListClassStock = stock.classList;
       const nameModel = stock.classList[1];
       const shadow = document.querySelector(".shadow");
       document.body.style.overflow = "hidden";
@@ -279,11 +278,13 @@ if (stocks) {
     const SSize = document.getElementById("SSize");
     const PPrice = document.getElementById("PPrice");
     const PImg = document.getElementById("PImg");
+    const IId = document.getElementById("IId");
     // INPUT CONTENT
     const IModel = document.getElementById("IModel");
     const ITypeProduct = document.getElementById("ITypeProduct");
     const IPrice = document.getElementById("IPrice");
 
+    IId.value = productToOrder.id;
     PModel.innerHTML = productToOrder.model;
     IModel.value = productToOrder.model;
     PTypeProduct.innerHTML = productToOrder.type_product_id;

@@ -266,6 +266,7 @@ if (stocks && BProductsSearch) {
 // READING OF PRODUCTS CART
 
 const totalPriceElement = document.querySelector(".total_price");
+
 if (totalPriceElement) {
   const products = Array.from(
     document.querySelectorAll(".car_shopping__container__products__product")
@@ -291,4 +292,37 @@ if (totalPriceElement) {
   });
 
   totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
+}
+
+// DELETE FUNCTION CART
+
+const formSpanDelete = document.querySelector(".form_span_delete");
+const deleteElements = document.querySelectorAll(
+  ".span_delete, .form_span_delete"
+);
+
+if (deleteElements.length > 0) {
+  deleteElements.forEach((element) => {
+    element.addEventListener("click", () => {
+      const parent = element.parentNode;
+
+      if (parent) {
+        const parentId = parent.classList[1];
+        const iidSpan = document.querySelector(".i_id_span");
+
+        if (iidSpan) {
+          iidSpan.value = parentId;
+          formSpanDelete.submit();
+        } else {
+          console.error("Missing element with class '.i_id_span'");
+        }
+      } else {
+        console.error("Clicked element has no parent node");
+      }
+    });
+  });
+} else {
+  console.warn(
+    "No elements found matching selectors '.span_delete' or '.form_span_delete'"
+  );
 }

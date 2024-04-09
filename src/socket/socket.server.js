@@ -1,4 +1,5 @@
 const { Pool } = require("pg");
+const crypto = require("crypto");
 const io = require("../../index");
 
 const pool = new Pool({
@@ -185,6 +186,13 @@ const handleConnection = (socket) => {
           productToOrder[Object.keys(productToOrder)[i]] =
             productToOrderValuesUnique;
         }
+
+        function generarId() {
+          return crypto.randomUUID();
+        }
+
+        productToOrder["id"] = generarId();
+
         socket.emit("productForAddedToCard", productToOrder);
       }
     });

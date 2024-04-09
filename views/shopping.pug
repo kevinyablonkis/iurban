@@ -28,6 +28,7 @@ block main
                     p Quantity
                     input#PQuantityrs(type="number" name="quantity" value="1" min="1")
                     input#IImg(type="text" name="img" style="display: none;")
+                    input#IId(type="text" name="id" style="display: none;")
                 button#btnOrder Add to cart
         section.products
             form.products_filters#productsFilters(method="post" action="/shopping" autocomplete="off" onsubmit="return ValidateCheckbox();")
