@@ -38,16 +38,18 @@ html(lang="en")
                                             p Empty cart.
                                     else
                                         each row in data_cart
-                                            div.car_shopping__container__products__product
-                                                img(src=`../assets/img/${row.img}`, alt=`${row.img}`).products__product__img
-                                                div.products__product__info
-                                                    p.products__product__info__p_one #{row.model}
-                                                    p.products__product__info__p_two #{row.type_product}
-                                                div.products__product__stock
-                                                    p.products__product__stock__qua Quantity
-                                                    p.products__product__stock__p #{row.quantity}
-                                                div.products__product__price
-                                                    p.products__product__price__p $#{row.price}
+                                            div.container_product
+                                                div.car_shopping__container__products__product
+                                                    img(src=`../assets/img/${row.img}`, alt=`${row.img}`).products__product__img
+                                                    div.products__product__info
+                                                        p.products__product__info__p_one #{row.model}
+                                                        p.products__product__info__p_two #{row.type_product}
+                                                    div.products__product__stock
+                                                        p.products__product__stock__qua Quantity
+                                                        p.products__product__stock__p #{row.quantity}
+                                                    div.products__product__price
+                                                        p.products__product__price__p $#{row.price}
+                                                span.span_delete(class="material-icons-round") deleted
                                 div.car_shopping__container__footer
                                     div.car_shopping__container__footer__total
                                         span.total Total
