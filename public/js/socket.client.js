@@ -35,7 +35,7 @@ if (form) {
     }
   };
 
-  const smallEmail = async () => {
+  const smallEmail = () => {
     return new Promise((resolve) => {
       const errorEmail = document.getElementById("errorEmail");
       const emailStyle = document.getElementById("email");
@@ -47,23 +47,21 @@ if (form) {
           errorEmail.style.display = "flex";
           errorSignupSpace.style.display = "none";
           emailStyle.style.border = "2px red solid";
-          resolve(emailRegistrado);
         } else if (emailRegistrado == 2) {
           errorEmail.style.display = "none";
           errorSignupSpace.style.display = "flex";
           usernameStyle.style.border = "2px red solid";
           emailStyle.style.border = "2px red solid";
-          resolve(emailRegistrado);
         } else {
           errorEmail.style.display = "none";
           emailStyle.style.border = "2px green solid";
-          resolve(emailRegistrado);
         }
+        resolve(emailRegistrado);
       });
     });
   };
 
-  const smallUsername = async () => {
+  const smallUsername = () => {
     return new Promise((resolve) => {
       const errorUsername = document.getElementById("errorUsername");
       const emailStyle = document.getElementById("email");
@@ -75,26 +73,24 @@ if (form) {
           errorUsername.style.display = "flex";
           errorSignupSpace.style.display = "none";
           usernameStyle.style.border = "2px red solid";
-          resolve(usernameRegistrado);
         } else if (usernameRegistrado == 2) {
           errorUsername.style.display = "none";
           errorSignupSpace.style.display = "flex";
           usernameStyle.style.border = "2px red solid";
           emailStyle.style.border = "2px red solid";
-          resolve(usernameRegistrado);
         } else {
           errorUsername.style.display = "none";
           usernameStyle.style.border = "2px green solid";
-          resolve(usernameRegistrado);
         }
+        resolve(usernameRegistrado);
       });
     });
   };
 
   button.addEventListener("click", async () => {
-    verificarEmail();
-    verificarUsername();
-    verificarIgualdadPassword();
+    await verificarEmail();
+    await verificarUsername();
+    await verificarIgualdadPassword();
 
     const email = await smallEmail();
     const username = await smallUsername();
@@ -124,9 +120,9 @@ const loginForm = document.getElementById("loginForm");
 const btnLogin = document.getElementById("btnLogin");
 
 if (loginForm) {
-  const logearVerificacionUsernameAndPassword = () => {
-    const usernameLogin = document.getElementById("usernameLogin").value;
-    const passwordLogin = document.getElementById("passwordLogin").value;
+  const logearVerificacionUsernameAndPassword = async () => {
+    const usernameLogin = await document.getElementById("usernameLogin").value;
+    const passwordLogin = await document.getElementById("passwordLogin").value;
     socket.emit(
       "logearVerificacionUsernameAndPassword",
       usernameLogin,
@@ -134,7 +130,7 @@ if (loginForm) {
     );
   };
 
-  const logearSmallUsername = async () => {
+  const logearSmallUsername = () => {
     return new Promise((resolve) => {
       const errorUsernameLogin = document.getElementById("errorUsernameLogin");
       const usernameLogin = document.getElementById("usernameLogin");
@@ -146,7 +142,6 @@ if (loginForm) {
           errorUsernameLogin.style.display = "flex";
           errorLoginSpace.style.display = "none";
           usernameLogin.style.border = "2px red solid";
-          resolve(usernameRegistrado);
         } else if (usernameRegistrado == 2) {
           errorUsernameLogin.style.display = "none";
           errorLoginSpace.style.display = "flex";
@@ -156,13 +151,13 @@ if (loginForm) {
           errorUsernameLogin.style.display = "none";
           errorLoginSpace.style.display = "none";
           usernameLogin.style.border = "2px green solid";
-          resolve(usernameRegistrado);
         }
+        resolve(usernameRegistrado);
       });
     });
   };
 
-  const logearSmallPassword = async () => {
+  const logearSmallPassword = () => {
     return new Promise((resolve) => {
       const errorPasswordLogin = document.getElementById("errorPasswordLogin");
       const passwordLogin = document.getElementById("passwordLogin");
@@ -195,7 +190,7 @@ if (loginForm) {
   };
 
   btnLogin.addEventListener("click", async () => {
-    logearVerificacionUsernameAndPassword();
+    await logearVerificacionUsernameAndPassword();
 
     const Username = await logearSmallUsername();
     const Password = await logearSmallPassword();
@@ -212,8 +207,6 @@ if (loginForm) {
     e.preventDefault();
   });
 }
-
-const f = document.getElementById("");
 
 // SEE ORDER
 
@@ -270,7 +263,7 @@ if (stocks) {
     });
   }
 
-  socket.on("productForAddedToCard", async (productToOrder) => {
+  socket.on("productForAddedToCard", (productToOrder) => {
     // VISIBLE CONTENT
     const PModel = document.getElementById("PModel");
     const PTypeProduct = document.getElementById("PTypeProduct");

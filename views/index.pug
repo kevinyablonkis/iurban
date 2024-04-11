@@ -3,16 +3,41 @@ extends ../templates/template
 block main
     main.main
         section.port
-            div.swiper.mySwiper_port
+            div.swiper.mySwiper_port.port_present_one
                 div.swiper-wrapper
                     div.swiper-slide
                         div.swiper-slide_port.port_1
+                            img(src="../assets/img/port-1.png", alt="port-1.png")
                     div.swiper-slide
                         div.swiper-slide_port.port_2
+                            img(src="../assets/img/port-2.png", alt="port-2.png")
                     div.swiper-slide
                         div.swiper-slide_port.port_3
+                            img(src="../assets/img/port-3.png", alt="port-3.png")
                     div.swiper-slide
                         div.swiper-slide_port.port_4
+                            img(src="../assets/img/port-4.png", alt="port-4.png")
+                div.swiper-button-next
+                div.swiper-button-prev
+                div.swiper-pagination
+                div.autoplay-progress
+                    svg(viewBox="0 0 48 48")
+                        circle(cx="24" cy="24" r="20")
+                    span
+            div.swiper.mySwiper_port.port_present_mobile
+                div.swiper-wrapper
+                    div.swiper-slide
+                        div.swiper-slide_port.port_1
+                            img(src="../assets/img/mobile-1.png", alt="mobile-1.png")
+                    div.swiper-slide
+                        div.swiper-slide_port.port_2
+                            img(src="../assets/img/mobile-2.png", alt="mobile-2.png")
+                    div.swiper-slide
+                        div.swiper-slide_port.port_3
+                            img(src="../assets/img/mobile-3.png", alt="mobile-3.png")
+                    div.swiper-slide
+                        div.swiper-slide_port.port_4
+                            img(src="../assets/img/mobile-4.png", alt="mobile-4.png")
                 div.swiper-button-next
                 div.swiper-button-prev
                 div.swiper-pagination

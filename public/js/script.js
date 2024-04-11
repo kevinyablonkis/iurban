@@ -13,10 +13,28 @@ function changeMenuWithURL() {
   }
 }
 
-// ENVIAR FORMULARIO
+// ENVIAR FORMULARIO AND FILTER MOBILE
 
 const productsFilters = document.getElementById("productsFilters");
+const spanFilterShopping = document.querySelector(".span_filter_shopping");
+const spanFilterShoppingClose = document.querySelector(
+  ".span_filter_shopping__close"
+);
 
+if (productsFilters) {
+  spanFilterShopping.addEventListener("click", () => {
+    productsFilters.style.zIndex = "1111";
+    document.body.scrollTop = 0; // Para navegadores Safari
+    document.documentElement.scrollTop = 0; // Para otros navegadores
+    productsFilters.style.transform = "translateX(0%)";
+    document.body.style.overflow = "hidden";
+  });
+  spanFilterShoppingClose.addEventListener("click", () => {
+    productsFilters.style.transform = "translateX(-100%)";
+    document.body.style.overflow = "auto";
+    productsFilters.style.zIndex = "0";
+  });
+}
 function SendForm() {
   productsFilters.submit();
 }
@@ -116,11 +134,23 @@ if (password) {
 const dataUser = document.getElementById("dataUser");
 const btnDataUserOpen = document.getElementById("btnDataUserOpen");
 const btnUserIconClose = document.getElementById("btnUserIconClose");
-const dataUserContainerInfo = document.getElementById("dataUserContainerInfo");
 const dataUserOptions = document.getElementById("dataUserOptions");
+const dataUserContainerInfo = document.getElementById("dataUserContainerInfo");
+// MOBILE
+const dataUserMobile = document.getElementById("dataUserMobile");
+const btnDataUserOpenMobile = document.getElementById("btnDataUserOpenMobile");
+const btnUserIconCloseMobile = document.getElementById(
+  "btnUserIconCloseMobile"
+);
+const dataUserOptionsMobile = document.getElementById("dataUserOptionsMobile");
+const dataUserContainerInfoMobile = document.getElementById(
+  "dataUserContainerInfoMobile"
+);
 
 if (btnDataUserOpen) {
   btnDataUserOpen.addEventListener("click", () => {
+    document.body.scrollTop = 0; // Para navegadores Safari
+    document.documentElement.scrollTop = 0; // Para otros navegadores
     dataUser.style.display = "flex";
     document.body.style.overflow = "hidden";
   });
@@ -131,20 +161,54 @@ if (btnDataUserOpen) {
   });
 }
 
+if (btnDataUserOpenMobile) {
+  btnDataUserOpenMobile.addEventListener("click", () => {
+    dataUserMobile.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  });
+
+  btnUserIconCloseMobile.addEventListener("click", () => {
+    dataUserMobile.style.display = "none";
+    document.body.style.overflow = "auto";
+  });
+}
+
 // BUTTON OF CAR SHOPPING
 
 const carShoppingIcon = document.getElementById("carShoppingIcon");
 const carShoppingContainer = document.getElementById("carShoppingContainer");
 const btnUserIconCloseCar = document.getElementById("btnUserIconCloseCar");
+// MOBILE
+const carShoppingIconMobile = document.getElementById("carShoppingIconMobile");
+const carShoppingContainerMobile = document.getElementById(
+  "carShoppingContainerMobile"
+);
+const btnUserIconCloseCarMobile = document.getElementById(
+  "btnUserIconCloseCarMobile"
+);
 
 if (carShoppingIcon) {
   carShoppingIcon.addEventListener("click", () => {
+    document.body.scrollTop = 0; // Para navegadores Safari
+    document.documentElement.scrollTop = 0; // Para otros navegadores
     carShoppingContainer.style.transform = "translateX(0%)";
     document.body.style.overflow = "hidden";
   });
 
   btnUserIconCloseCar.addEventListener("click", () => {
     carShoppingContainer.style.transform = "translateX(100%)";
+    document.body.style.overflow = "auto";
+  });
+
+  carShoppingIconMobile.addEventListener("click", () => {
+    document.body.scrollTop = 0; // Para navegadores Safari
+    document.documentElement.scrollTop = 0; // Para otros navegadores
+    carShoppingContainerMobile.style.transform = "translateX(0%)";
+    document.body.style.overflow = "hidden";
+  });
+
+  btnUserIconCloseCarMobile.addEventListener("click", () => {
+    carShoppingContainerMobile.style.transform = "translateX(100%)";
     document.body.style.overflow = "auto";
   });
 }
@@ -321,8 +385,28 @@ if (deleteElements.length > 0) {
       }
     });
   });
-} else {
-  console.warn(
-    "No elements found matching selectors '.span_delete' or '.form_span_delete'"
-  );
 }
+
+// MENU MOBILE
+
+const btnOpenMenuMobile = document.getElementById("btnOpenMenuMobile");
+const containerSectionLinks = document.querySelector(
+  ".container_section_links"
+);
+
+// OPEN
+
+btnOpenMenuMobile.addEventListener("click", () => {
+  productsFilters.style.zIndex = "11111";
+  containerSectionLinks.style.transform = "translateX(0%)";
+  document.body.style.overflow = "hidden";
+});
+
+// CLOSE
+
+const btnCloseMenuMobile = document.getElementById("btnCloseMenuMobile");
+
+btnCloseMenuMobile.addEventListener("click", () => {
+  containerSectionLinks.style.transform = "translateX(100%)";
+  document.body.style.overflow = "auto";
+});

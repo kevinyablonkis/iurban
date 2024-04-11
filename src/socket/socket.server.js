@@ -1,6 +1,5 @@
 const { Pool } = require("pg");
 const crypto = require("crypto");
-const io = require("../../index");
 
 const pool = new Pool({
   user: "postgres",
@@ -33,9 +32,9 @@ const handleConnection = (socket) => {
     );
   };
 
-  socket.on("verificarEmail", (email) => {
+  socket.on("verificarEmail", async (email) => {
     if (!/\s/.test(email)) {
-      verificarEmail(email);
+      await verificarEmail(email);
     } else {
       let emailRegistrado = 2;
       socket.emit("resultadoVerificacionEmail", emailRegistrado);
@@ -62,9 +61,9 @@ const handleConnection = (socket) => {
     );
   };
 
-  socket.on("verificarUsername", (username) => {
+  socket.on("verificarUsername", async (username) => {
     if (!/\s/.test(username)) {
-      verificarUsername(username);
+      await verificarUsername(username);
     } else {
       let usernameRegistrado = 2;
       socket.emit("resultadoVerificacionUsername", usernameRegistrado);
@@ -144,7 +143,6 @@ const handleConnection = (socket) => {
   );
 
   // FUNCTION DATA ENCAPSULATION FOR ORDER
-
   const dataEncapsulationForOrder = (typeModel, nameModel) => {
     const Accessories =
       "SELECT	Model,(SELECT Type_Product FROM Type_Products WHERE Accessories.Type_Product_ID = Type_Product_ID) as Type_Product_ID, (SELECT Type_Color FROM Type_Color WHERE Accessories.Type_Color_ID = Type_Color_ID) as Type_Color, Price, Img FROM Accessories WHERE Model = $1";
@@ -199,7 +197,6 @@ const handleConnection = (socket) => {
   };
 
   socket.on("dataEncapsulationForOrder", async (typeModel, nameModel) => {
-    // AQUI VA UNA VALIDACION
     await dataEncapsulationForOrder(typeModel, nameModel);
   });
 };

@@ -32,6 +32,8 @@ block main
                 button#btnOrder Add to cart
         section.products
             form.products_filters#productsFilters(method="post" action="/shopping" autocomplete="off" onsubmit="return ValidateCheckbox();")
+                span.span_filter_shopping(class="material-icons-round") tune
+                span.span_filter_shopping__close(class="material-icons-round") close
                 div.one
                     label.labelChecked-1(for="Man" onclick="CheckedInputOption1()") Men
                         input.inputChecked-1(type="checkbox" id="Man Option" value="1" name="Men")

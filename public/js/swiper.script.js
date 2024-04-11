@@ -4,6 +4,7 @@ import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs
 
 const progressCircle = document.querySelector(".autoplay-progress svg");
 const progressContent = document.querySelector(".autoplay-progress span");
+
 const Portswiper = new Swiper(".mySwiper_port", {
   loop: true,
   spaceBetween: 30,
@@ -30,11 +31,22 @@ const Portswiper = new Swiper(".mySwiper_port", {
 
 // SWIPER - THE MOST SOLD
 
-var mySwiperTheMostSold = new Swiper(".mySwiper_the_most_sold", {
-  slidesPerView: 3,
-  spaceBetween: 30,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
+if (window.innerWidth >= 600) {
+  var mySwiperTheMostSold = new Swiper(".mySwiper_the_most_sold", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+} else {
+  var mySwiperTheMostSold = new Swiper(".mySwiper_the_most_sold", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+}

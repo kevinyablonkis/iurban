@@ -21,7 +21,7 @@ html(lang="en")
             header.header.header_home#header
                 nav.header_nav
                     a.logo(href="/"): img(src="../assets/img/logo-a.webp" alt="logo-iurban")
-                    ul.header_nav_list
+                    ul.header_nav_list.header_nav_list__mobile
                         li.header_links: a(href="/new-and-featured" title="New and featured clothing") New and Featured
                         li.header_links: a(href="/men" title="Men's clothing") Men
                         li.header_links: a(href="/women" title="Women's clothing") Women
@@ -72,7 +72,64 @@ html(lang="en")
                         else
                             li: a(href="/signup" title="Create Account"):  span(class="material-icons-round") account_circle
                             li: a(href="/login" title="Log In"): span(class="material-icons-round") login
-
+                nav.header_nav__mobile
+                    a.logo(href="/"): img(src="../assets/img/logo-a.webp" alt="logo-iurban")
+                    div.header_nav__mobile__option
+                        if (data_user !== undefined)
+                                div.car_shopping
+                                    span#carShoppingIconMobile(class="material-icons-round") shopping_cart
+                                div.car_shopping__container#carShoppingContainerMobile
+                                    div.car_shopping__container__header
+                                        span Shopping Cart
+                                        span.btn_user_icon_close_car#btnUserIconCloseCarMobile(class="material-icons-round") close
+                                    div.car_shopping__container__products
+                                        if (data_cart == undefined || data_cart.length < 1)
+                                            div.car_shopping__container__products__empty
+                                                p Empty cart.
+                                        else
+                                            each row in data_cart
+                                                div.container_product(class=`${row.id}`)
+                                                    div.car_shopping__container__products__product
+                                                        img(src=`../assets/img/${row.img}`, alt=`${row.img}`).products__product__img
+                                                        div.products__product__info
+                                                            p.products__product__info__p_one #{row.model}
+                                                            p.products__product__info__p_two #{row.type_product}
+                                                        div.products__product__stock
+                                                            p.products__product__stock__qua Quantity
+                                                            p.products__product__stock__p #{row.quantity}
+                                                        div.products__product__price
+                                                            p.products__product__price__p $#{row.price}
+                                                    span.span_delete(class="material-icons-round") deleted
+                                                    form.form_span_delete(action="/delete-cart" method="POST" style="display: none;")
+                                                        input.i_id_span(type="text" name="id")
+                                    div.car_shopping__container__footer
+                                        div.car_shopping__container__footer__total
+                                            span.total Total
+                                            span.total_price $0,00
+                                        div.car_shopping__container__footer__btn_buy
+                                            button Buy
+                                div.data_user__container
+                                    li: span#btnDataUserOpenMobile.unactive(class="material-icons-round") person
+                                div#dataUserMobile.data_user__mobile
+                                    span.btn_user_icon_close#btnUserIconCloseMobile(class="material-icons-round") close
+                                    div.data_user__container
+                                        li: span.btn_data_user_close(class="material-icons-round") person
+                                        div.data_user__container_info#dataUserContainerInfoMobile
+                                            span.data_user__full_name #{data_user.first_name} #{data_user.last_name}
+                                            span.data_user__email #{data_user.email}
+                                    div.data_user__options#dataUserOptionsMobile
+                                        a.logout(href="/logout") Log Out
+                    span.btn_open_menu_mobile#btnOpenMenuMobile(class="material-icons-round") menu
+                    div.container_section_links
+                        ul.header_nav__mobile__list
+                            span.btn_close_menu_mobile#btnCloseMenuMobile(class="material-icons-round") close
+                            if (data_user == undefined)
+                                    div.container_login_signup
+                                        li: a(href="/signup" title="Create Account"):  span(class="material-icons-round") account_circle
+                                        li: a(href="/login" title="Log In"): span(class="material-icons-round") login
+                            li.header_links: a(href="/new-and-featured" title="New and featured clothing") New and Featured
+                            li.header_links: a(href="/men" title="Men's clothing") Men
+                            li.header_links: a(href="/women" title="Women's clothing") Women
         block main
 
         block shadow
