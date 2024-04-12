@@ -862,7 +862,7 @@ h2 {    font-size: 50px;    }
 }
 
 .tag_type {
-    font-weight: lighter;
+    font-weight: normal;
     font-size: 14px;
     color: #ffffff;
 }
@@ -1158,8 +1158,15 @@ h2 {    font-size: 50px;    }
 
 .products_search_btn {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 15px;
+}
+
+.products_search_btn__div {
+    display: flex;
+    flex-direction: row;
 }
 
 .products_search_btn span {
@@ -1196,12 +1203,28 @@ h2 {    font-size: 50px;    }
 }
 
 .stock {
+    display: flex;
+    flex-direction: column;
     width: 185px;
     height: 250px;
     border-radius: 5px;
     transition: ease .5s;
     overflow: hidden;
     cursor: pointer;
+}
+
+.see_all_stock {
+    padding: 5px 10px;
+    background-color: #0386aa;
+    border-radius: 16px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: ease .3s;
+}
+
+.see_all_stock:hover {
+    transform: scale(105%);
 }
 
 /* SWIPER - PORT */
@@ -2452,13 +2475,13 @@ h2 {    font-size: 50px;    }
     }
     
     .tag_type {
-        font-weight: lighter;
+        font-weight: normal;
         font-size: 20px;
         color: #ffffff;
     }
 
     .stock .tag_type {
-        font-weight: lighter;
+        font-weight: normal;
         font-size: 18px;
         color: #ffffff;
     }
@@ -2622,7 +2645,6 @@ h2 {    font-size: 50px;    }
         background-color: #0386aa;
         border-radius: 5px;
         font-size: 20px;
-        z-index: 111;
         transition: ease .3s;
         transform: scale(115%);
         transform: translateX(-100%);
@@ -2776,7 +2798,8 @@ h2 {    font-size: 50px;    }
     
     .products_search_btn {
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        align-items: start;
         justify-content: center;
     }
     
@@ -2823,6 +2846,8 @@ h2 {    font-size: 50px;    }
     }
     
     .stock {
+        display: flex;
+        flex-direction: column;
         width: 155px;
         height: 250px;
         border-radius: 5px;
@@ -2831,6 +2856,22 @@ h2 {    font-size: 50px;    }
         cursor: pointer;
     }
     
+    .see_all_stock {
+        margin-right: 15px;
+        padding: 5px 10px;
+        background-color: #0386aa;
+        border-radius: 16px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: ease .3s;
+    }
+    
+    .see_all_stock:hover {
+        transform: scale(105%);
+    }
+    
+
     /* SWIPER - PORT */
     
     .port {

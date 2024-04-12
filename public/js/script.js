@@ -311,6 +311,7 @@ if (SColors) {
 
 const stocks = document.querySelectorAll(".stock");
 const BProductsSearch = document.getElementById("BProductsSearch");
+const seeAllStock = document.getElementById("seeAllStock");
 
 if (stocks && BProductsSearch) {
   BProductsSearch.addEventListener("click", () => {
@@ -323,6 +324,12 @@ if (stocks && BProductsSearch) {
       } else {
         stock.style.display = "flex";
       }
+    });
+  });
+
+  seeAllStock.addEventListener("click", () => {
+    stocks.forEach((stock) => {
+      stock.style.display = "flex";
     });
   });
 }
@@ -397,7 +404,6 @@ const containerSectionLinks = document.querySelector(
 // OPEN
 
 btnOpenMenuMobile.addEventListener("click", () => {
-  productsFilters.style.zIndex = "11111";
   containerSectionLinks.style.transform = "translateX(0%)";
   document.body.style.overflow = "hidden";
 });

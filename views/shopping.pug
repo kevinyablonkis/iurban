@@ -106,8 +106,11 @@ block main
                             else
                                 p= `${typeProduct}`
                     div.products_search_btn
-                        input#IProductsSearch(type="text" placeholder="Search" autocomplete="off")
-                        span#BProductsSearch(class="material-icons-round") search
+                        div.see_all_stock#seeAllStock
+                            p See all products
+                        div.products_search_btn__div
+                            input#IProductsSearch(type="text" placeholder="Search" autocomplete="off")
+                            span#BProductsSearch(class="material-icons-round") search
                 div.products_search_stock
                     each row in register
                         div.stock#stock(class=`${row.model}`)
