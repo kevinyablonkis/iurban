@@ -89,23 +89,23 @@ html(lang="en")
                                         else
                                             each row in data_cart
                                                 div.container_product(class=`${row.id}`)
-                                                    div.car_shopping__container__products__product
+                                                    div.car_shopping__container__products__product__mobile
                                                         img(src=`../assets/img/${row.img}`, alt=`${row.img}`).products__product__img
                                                         div.products__product__info
                                                             p.products__product__info__p_one #{row.model}
                                                             p.products__product__info__p_two #{row.type_product}
                                                         div.products__product__stock
                                                             p.products__product__stock__qua Quantity
-                                                            p.products__product__stock__p #{row.quantity}
+                                                            p.products__product__stock__p__mobile #{row.quantity}
                                                         div.products__product__price
-                                                            p.products__product__price__p $#{row.price}
+                                                            p.products__product__price__p__mobile $#{row.price}
                                                     span.span_delete(class="material-icons-round") deleted
                                                     form.form_span_delete(action="/delete-cart" method="POST" style="display: none;")
                                                         input.i_id_span(type="text" name="id")
                                     div.car_shopping__container__footer
                                         div.car_shopping__container__footer__total
                                             span.total Total
-                                            span.total_price $0,00
+                                            span.total_price__mobile $0,00
                                         div.car_shopping__container__footer__btn_buy
                                             button Buy
                                 div.data_user__container

@@ -72,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
     scrollButton.style.display = "none";
   } else {
     indice.style.display = "flex";
-    scrollButton.style.display = "flex";
 
     window.onscroll = function () {
       // Verifica si la página puede hacer scroll hacia arriba
@@ -363,6 +362,37 @@ if (totalPriceElement) {
   });
 
   totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
+}
+
+// READING OF PRODUCTS CART - MOBILE
+
+const totalPriceElementMobile = document.querySelector(".total_price__mobile");
+
+if (totalPriceElementMobile) {
+  const productsMobile = Array.from(
+    document.querySelectorAll(".car_shopping__container__products__product__mobile")
+  );
+
+  let totalPriceMobile = 0;
+
+  productsMobile.forEach((productMobile) => {
+    const quantityElementMobile = productMobile.querySelector(
+      ".products__product__stock__p__mobile"
+    );
+    const priceElementMobile = productMobile.querySelector(".products__product__price__p__mobile");
+
+    if (quantityElementMobile && priceElementMobile) {
+      const quantityMobile = Number(quantityElementMobile.textContent);
+      const priceMobile = Number(priceElementMobile.textContent.replace(/[$,]/g, ""));
+
+      const productTotalPriceMobile = quantityMobile * priceMobile;
+      totalPriceMobile += productTotalPriceMobile;
+    } else {
+      console.warn("Missing quantity or price element for a product.");
+    }
+  });
+
+  totalPriceElementMobile.textContent = "$" + totalPriceMobile.toFixed(2);
 }
 
 // DELETE FUNCTION CART
