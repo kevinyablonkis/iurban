@@ -1593,7 +1593,6 @@ h2 {    font-size: 50px;    }
     gap: 30px;
     font-size: 30px;
     padding: 20px 0;
-    font-weight: bold;
 }
 
 .header_nav__mobile__list a, .header_nav__mobile__list span .footer_nav_list a, .footer_nav p {
