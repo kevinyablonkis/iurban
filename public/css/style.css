@@ -1213,6 +1213,7 @@ h2 {    font-size: 50px;    }
     color: #fff;
     font-size: 16px;
     cursor: pointer;
+    user-select: none;
     transition: ease .3s;
 }
 
