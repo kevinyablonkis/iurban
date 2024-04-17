@@ -15,7 +15,7 @@ It is a web store type website with user registration, user login, shopping cart
 
 <li>
 <em><strong>Configure the website Database.</strong></em>
-    You must create a database in PgAdmin4 and restore it using the repo DB (the DB is in /db/iurban-db.sql).
+    You must create a database in pgAdmin4 and restore it using the repo DB (the DB is in /db/iurban-db.sql).
 </li>
 
 <li>
