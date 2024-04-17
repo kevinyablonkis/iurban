@@ -1,21 +1,27 @@
 <h1>IUrban - Tienda Web</h1>
 
-<h2>¿De que trata este Repo?</h2>
+<h2>¿De qué trata este Repo?</h2>
 
-Es un sitio web tipo tienda web con funciones de registro de usuarios, inicio de sesion para usuarios, carrito de compras y filtro de busqueda de productos. Todo con el fin de práctica de codigo y logica en de funcionamiento de un sitio web.
+Es un sitio web tipo tienda web con funciones de registro de usuarios, inicio de sesión para usuarios, carrito de compras y filtro de búsqueda de productos. Todo con el fin de práctica de código y lógica en de funcionamiento de un sitio web.
 
-<h2>Si quieres ver el codigo</h2>
+<h2>Si quieres desplegar el repo:</h2>
+<ol>
+    
+<li>
+<em><strong>Instala dependencias del proyecto.</strong></em>
+</li>
 
-<em><strong>Instala dependecias del proyecto</strong></em>
+      npm install
 
-    npm install
+<li>
+<em><strong>Configura la Base de Datos del sitio web.</strong></em>
+    Debes crear una base de datos en PgAdmin4 y restuararla usando la DB del repo (la DB esta en /db/iurban-db.sql).
+</li>
 
-<em><strong>Configura la Base de Datos del sitio web</strong></em>
-
-Si sabes usar <em><strong>PostgreSQL</strong></em> y lo puedes configurar tu mismo la DB esta en el repositorio
-
-
-
-<em><strong>Arranca el proyecto</strong></em>
+<li>
+<em><strong>Arranca el proyecto.</strong></em>
+</li>
 
     npm run dev
+
+</ol>
