@@ -25,3 +25,8 @@ It is a web store type website with user registration, user login, shopping cart
     npm run dev
 
 </ol>
+
+<h1>User and Password:</h1>
+<strong>User:</strong> jon
+</br>
+<strong>Password:</strong> 123
